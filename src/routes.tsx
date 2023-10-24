@@ -1,13 +1,12 @@
+import { LoginPage } from "@pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import { Home } from "./pages/home/home";
 
 export const routes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/home"  element={<Home/>} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
