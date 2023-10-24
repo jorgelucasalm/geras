@@ -36,14 +36,4 @@ export const Container = styled.div`
     letter-spacing: 1rem;
     margin-right: -1rem; //corrigir gambiarra depois
   }
-
-  button {
-    font-size: 1rem;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 2rem;
-
-    color: var(--white);
-    background: var(--blue-600);
-  }
 `;
