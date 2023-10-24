@@ -1,5 +1,12 @@
+import Logo from "../../assets/images/primary-logo.png"
+import { Container } from "./home-style";
+
 export function Home() {
   return (
-    <h1>Home</h1>
-  )
-}
+    <Container>
+      <img src={Logo}/>
+      <p>Geras</p>
+      <button type="button">Vamos começar!</button>
+    </Container>
+  );
+  }
