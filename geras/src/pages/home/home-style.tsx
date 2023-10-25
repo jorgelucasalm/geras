@@ -34,6 +34,7 @@ export const Container = styled.div`
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 1rem;
+    margin: 2rem 0;
     margin-right: -1rem; //corrigir gambiarra depois
   }
 `;

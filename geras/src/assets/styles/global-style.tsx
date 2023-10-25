@@ -21,15 +21,22 @@ export const GlobalStyle = createGlobalStyle`
 
   * {
     font-family: 'Trebuchet MS', sans-serif;
+    padding: 0;
+    margin: 0;
   }
 
   h2 {
-    color: #08084A;
+    color: var(--blue-800);
     font-family: Trebuchet MS;
     font-size: 1.25rem;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.125rem;
+  }
+
+  p {
+    color: var(--blue-600);
+    font-weight: 600;
   }
 
 `;
