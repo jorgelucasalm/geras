@@ -1,12 +1,10 @@
 import { Content } from "./button-style";
 
 interface ButtonProps {
-  children: string;
-  category?: string
+  children: any;
+  category?: string;
 }
 
-export function Button({children, category}:ButtonProps) {
-  return (
-    <Content category={category}>{children}</Content>
-  )
+export function Button({ children, category }: ButtonProps) {
+  return <Content category={category}>{children}</Content>;
 }

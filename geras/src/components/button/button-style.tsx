@@ -12,14 +12,7 @@ export const Content = styled.button<ButtonProps>`
   border-radius: 2rem;
   font-size: .9rem;
   font-weight: 600;
-  border: ${(props) => {
-    switch (props.category) {
-      case "secundary":
-        return "1px solid var(--blue-800)";
-      default:
-        return "none";
-    }
-  }};
+  border: 1px solid var(--blue-800);
 
   color: ${(props) => {
     switch (props.category) {
@@ -38,4 +31,15 @@ export const Content = styled.button<ButtonProps>`
         return "var(--blue-800)";
     }
   }};
+
+  &:hover {
+    background: ${(props) => {
+    switch (props.category) {
+      case "secundary":
+        return "var(--blue-100)";
+      default:
+        return "var(--blue-600)";
+    }
+  }};
+  }
 `;
