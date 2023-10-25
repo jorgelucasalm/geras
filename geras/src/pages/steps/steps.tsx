@@ -2,6 +2,7 @@ import { Container, Content, Instruction } from "./steps-style";
 import Logo from "../../assets/images/primary-logo.png";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { Button } from "../../components/button/button";
+import { Header } from "../../components/header/header";
 
 export function Step() {
   return (
@@ -11,10 +12,7 @@ export function Step() {
         <img src={Logo} />
       </nav>
 
-      <header>
-        <h2>Vamos começar!</h2>
-        <p>Passos</p>
-      </header>
+      <Header title="Vamos começar!" subtitle="Passos" />
 
       <section>
         <Instruction>

@@ -26,15 +26,6 @@ export const Container = styled.div`
       margin: 0 2rem;
     }
   }
-
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 0;
-    gap: 1rem;
-  }
 `;
 
 export const Instruction = styled.div`
