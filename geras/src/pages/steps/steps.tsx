@@ -4,25 +4,36 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 import { Button } from "../../components/button/button";
 import { Header } from "../../components/header/header";
 
+const instructions = [
+  {
+    id: "1",
+    text: "Aprenda a criar um e-mail",
+  },
+  {
+    id: "2",
+    text: "Entrar no GERAS",
+  },
+];
+
 export function Step() {
   return (
     <Container>
       <nav>
-        <BsArrowLeftCircle size={24} />
+        <BsArrowLeftCircle size={24} /> {/*como fazer funcionar? */}
         <img src={Logo} />
       </nav>
 
       <Header title="Vamos começar!" subtitle="Passos" />
 
       <section>
-        <Instruction>
-          <span>1</span>
-          <p>Aprenda a criar um e-mail</p>
-        </Instruction>
-        <Instruction>
-          <span>2</span>
-          <p>Entrar no GERAS</p>
-        </Instruction>
+        {instructions.map((instruction) => {
+          return (
+            <Instruction key={instruction.id}>
+              <span>{instruction.id}</span>
+              <p>{instruction.text}</p>
+            </Instruction>
+          );
+        })}
       </section>
 
       <Content>
