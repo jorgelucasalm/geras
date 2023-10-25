@@ -5,6 +5,8 @@ import { useMutation } from "@tanstack/react-query";
 import api from "@utils/api";
 import toastUpdate from "@utils/toastUpdate";
 import { Checkbox, Form } from "antd";
+import { AxiosError } from "axios";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 import isEmail from "validator/lib/isEmail";
@@ -12,22 +14,40 @@ import isEmail from "validator/lib/isEmail";
 export default function LoginPage() {
   const [form] = Form.useForm();
   const rememberPasswordChecked = Form.useWatch<boolean>("rememberPassword", form);
+  const navigate = useNavigate();
 
   const loginMutation = useMutation({
     mutationKey: ["user-login"],
     mutationFn: async ({ login, password }: { login: string; password: string }) => {
-      const response = await api.post("/v1/user/login", { login, password });
-      console.log(response);
+      const {
+        data: { access_token },
+      } = await api.post<{ access_token: string }>("/v1/user/login", {
+        login,
+        password,
+      });
+
+      return access_token;
     },
     onMutate: () => {
       const toastId = toast.loading("Logando...");
 
       return { toastId };
     },
-    onSuccess: (_, __, context) => {
+    onSuccess: (access_token, __, context) => {
       toastUpdate("Logado com sucesso", toast.TYPE.SUCCESS, context!.toastId);
+      localStorage.setItem("access_token", access_token);
+      navigate("/home");
     },
-    onError: (err: Error, _, context) => {
+    onError: (err: AxiosError, _, context) => {
+      if (err.response?.status === 404) {
+        toastUpdate("Email não cadastrado", toast.TYPE.ERROR, context!.toastId);
+        return;
+      }
+      if (err.response?.status === 403) {
+        toastUpdate("Login ou senha inválidos", toast.TYPE.ERROR, context!.toastId);
+        return;
+      }
+
       toastUpdate("Error", toast.TYPE.ERROR, context!.toastId);
     },
   });
