@@ -119,7 +119,7 @@ export default function LoginPage() {
         buttonType="primary"
         width={216}
         height={48}
-        style={{ margin: "0 auto", marginBottom: "2.4rem" }}
+        style={{ margin: "0 auto", marginBottom: "1.5rem", marginTop: "3rem" }}
         onClick={() => form.submit()}
       >
         Entrar
@@ -133,40 +133,42 @@ export default function LoginPage() {
 
 const Main = styled.main`
   margin: 0 auto;
-  padding: 4.2rem 3.2rem;
-  max-width: 36rem;
-  max-height: 80rem;
+  padding: 2.625rem 2rem;
+  max-width: 22.5rem;
+  max-height: 50rem;
 `;
 
 const Title = styled.h1`
-  color: var(--dark-blue);
-  font-size: 2.4rem;
+  color: var(--blue-800);
+  font-size: 1.5rem;
   margin: 0 auto;
+  margin-top: 1.125rem;
+  margin-bottom: 3.5rem;
   width: max-content;
 `;
 
 const FormDiv = styled.div<{ $rememberPasswordChecked: boolean }>`
   & .ant-form-item-label {
-    padding-bottom: 0.2rem;
+    padding-bottom: 0.125rem;
   }
 
   & .ant-form-item-label > label {
-    color: var(--dark-blue);
+    color: var(--blue-800);
   }
 
   & .ant-checkbox-wrapper > span:last-child {
     color: ${({ $rememberPasswordChecked }) =>
-      $rememberPasswordChecked ? "#53a2ff" : "var(--dark-blue)"};
-    font-size: 1.6rem;
+      $rememberPasswordChecked ? "#53a2ff" : "var(--blue-600)"};
+    font-size: 1rem;
     transform: translateY(1px);
   }
 
   & .ant-checkbox-inner {
-    width: 2rem;
-    height: 2rem;
+    width: 1.25rem;
+    height: 1.25rem;
     border: 1px solid
       ${({ $rememberPasswordChecked }) =>
-        $rememberPasswordChecked ? "#53a2ff" : "var(--dark-blue)"};
+        $rememberPasswordChecked ? "#53a2ff" : "var(--blue-600)"};
 
     &::after {
       transform: rotate(45deg) scale(1) translate(-50%, -60%);

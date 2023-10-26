@@ -1,4 +1,4 @@
-import GlobalStyle from "GlobalStyles";
+import GlobalStyle from "@assets/styles/GlobalStyles";
 import { routes as RoutesReact } from "./routes";
 import { ToastContainer } from "react-toastify";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
