@@ -11,6 +11,7 @@ import isEmail from "validator/lib/isEmail";
 import { LuMail } from "react-icons/lu";
 import { FiLock } from "react-icons/fi";
 import { AiOutlineCalendar, AiOutlineUser } from "react-icons/ai";
+import DatePicker from "@components/DatePicker";
 
 export default function SignUpPage() {
   const [form] = Form.useForm();
@@ -51,21 +52,12 @@ export default function SignUpPage() {
               {
                 validator: (_, value: string) => {
                   if (!value) {
-                    return Promise.reject("Nome completo");
+                    return Promise.reject("Digite seu nome");
                   }
 
                   return Promise.resolve();
                 },
                 validateTrigger: "submit",
-              },
-              {
-                validator: (_, value: string) => {
-                  if (value && !isEmail(value)) {
-                    return Promise.reject("Digite um e-mail válido.");
-                  }
-
-                  return Promise.resolve();
-                },
               },
             ]}
           >
@@ -76,6 +68,7 @@ export default function SignUpPage() {
               placeholder="Nome completo"
             />
           </Form.Item>
+          <DatePicker width={296} height={48} />
 
           <Form.Item
             name="birthday"
