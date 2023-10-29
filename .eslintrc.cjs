@@ -28,7 +28,7 @@ module.exports = {
   rules: {
     semi: ["warn"],
     quotes: ["warn", "double"],
-    camelcase: ["warn", { properties: "never", ignoreImports: true }],
+    camelcase: "off",
     "jsx-quotes": ["error", "prefer-double"],
     "comma-dangle": ["warn", "always-multiline"],
     "@typescript-eslint/no-unused-vars": [
