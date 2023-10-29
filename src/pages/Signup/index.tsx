@@ -4,13 +4,12 @@ import MainInput from "@components/MainInput";
 import { useMutation } from "@tanstack/react-query";
 import api from "@utils/api";
 import toastUpdate from "@utils/toastUpdate";
-import { Checkbox, Form } from "antd";
+import { Form } from "antd";
 import { toast } from "react-toastify";
 import styled from "styled-components";
-import isEmail from "validator/lib/isEmail";
 import { LuMail } from "react-icons/lu";
 import { FiLock } from "react-icons/fi";
-import { AiOutlineCalendar, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
 import DatePicker from "@components/DatePicker";
 
 export default function SignUpPage() {
@@ -68,17 +67,17 @@ export default function SignUpPage() {
               placeholder="Nome completo"
             />
           </Form.Item>
-          <DatePicker width={296} height={48} />
 
           <Form.Item
-            name="birthday"
-            label="Data de Nascimento"
+            name="dt-nascimento"
+            label="Data de nascimento"
             initialValue=""
+            validateFirst
             rules={[
               {
                 validator: (_, value: string) => {
                   if (!value) {
-                    return Promise.reject("Insira uma senha");
+                    return Promise.reject("Digite seu nome");
                   }
 
                   return Promise.resolve();
@@ -87,7 +86,7 @@ export default function SignUpPage() {
               },
             ]}
           >
-            <MainInput width={296} height={48} prefix={<AiOutlineCalendar />} />
+            <DatePicker width={296} height={48} />
           </Form.Item>
 
           <Form.Item
