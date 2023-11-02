@@ -5,6 +5,8 @@ import { useMutation } from "@tanstack/react-query";
 import api from "@utils/api";
 import toastUpdate from "@utils/toastUpdate";
 import { Checkbox, Form } from "antd";
+import { AxiosError } from "axios";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 import isEmail from "validator/lib/isEmail";
@@ -12,22 +14,40 @@ import isEmail from "validator/lib/isEmail";
 export default function LoginPage() {
   const [form] = Form.useForm();
   const rememberPasswordChecked = Form.useWatch<boolean>("rememberPassword", form);
+  const navigate = useNavigate();
 
   const loginMutation = useMutation({
     mutationKey: ["user-login"],
     mutationFn: async ({ login, password }: { login: string; password: string }) => {
-      const response = await api.post("/v1/user/login", { login, password });
-      console.log(response);
+      const {
+        data: { access_token },
+      } = await api.post<{ access_token: string }>("/v1/user/login", {
+        login,
+        password,
+      });
+
+      return access_token;
     },
     onMutate: () => {
       const toastId = toast.loading("Logando...");
 
       return { toastId };
     },
-    onSuccess: (_, __, context) => {
+    onSuccess: (access_token, __, context) => {
       toastUpdate("Logado com sucesso", toast.TYPE.SUCCESS, context!.toastId);
+      localStorage.setItem("access_token", access_token);
+      navigate("/home");
     },
-    onError: (err: Error, _, context) => {
+    onError: (err: AxiosError, _, context) => {
+      if (err.response?.status === 404) {
+        toastUpdate("Email não cadastrado", toast.TYPE.ERROR, context!.toastId);
+        return;
+      }
+      if (err.response?.status === 403) {
+        toastUpdate("Login ou senha inválidos", toast.TYPE.ERROR, context!.toastId);
+        return;
+      }
+
       toastUpdate("Error", toast.TYPE.ERROR, context!.toastId);
     },
   });
@@ -99,7 +119,7 @@ export default function LoginPage() {
         buttonType="primary"
         width={216}
         height={48}
-        style={{ margin: "0 auto", marginBottom: "2.4rem" }}
+        style={{ margin: "0 auto", marginBottom: "1.5rem", marginTop: "3rem" }}
         onClick={() => form.submit()}
       >
         Entrar
@@ -113,40 +133,42 @@ export default function LoginPage() {
 
 const Main = styled.main`
   margin: 0 auto;
-  padding: 4.2rem 3.2rem;
-  max-width: 36rem;
-  max-height: 80rem;
+  padding: 2.625rem 2rem;
+  max-width: 22.5rem;
+  max-height: 50rem;
 `;
 
 const Title = styled.h1`
-  color: var(--dark-blue);
-  font-size: 2.4rem;
+  color: var(--blue-800);
+  font-size: 1.5rem;
   margin: 0 auto;
+  margin-top: 1.125rem;
+  margin-bottom: 3.5rem;
   width: max-content;
 `;
 
 const FormDiv = styled.div<{ $rememberPasswordChecked: boolean }>`
   & .ant-form-item-label {
-    padding-bottom: 0.2rem;
+    padding-bottom: 0.125rem;
   }
 
   & .ant-form-item-label > label {
-    color: var(--dark-blue);
+    color: var(--blue-800);
   }
 
   & .ant-checkbox-wrapper > span:last-child {
     color: ${({ $rememberPasswordChecked }) =>
-      $rememberPasswordChecked ? "#53a2ff" : "var(--dark-blue)"};
-    font-size: 1.6rem;
+      $rememberPasswordChecked ? "#53a2ff" : "var(--blue-600)"};
+    font-size: 1rem;
     transform: translateY(1px);
   }
 
   & .ant-checkbox-inner {
-    width: 2rem;
-    height: 2rem;
+    width: 1.25rem;
+    height: 1.25rem;
     border: 1px solid
       ${({ $rememberPasswordChecked }) =>
-        $rememberPasswordChecked ? "#53a2ff" : "var(--dark-blue)"};
+        $rememberPasswordChecked ? "#53a2ff" : "var(--blue-600)"};
 
     &::after {
       transform: rotate(45deg) scale(1) translate(-50%, -60%);

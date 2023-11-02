@@ -24,14 +24,19 @@ const Main = styled.div<{
   width: max-content;
 
   & > button {
-    background-color: ${({ $type }) => ($type === "primary" ? "var(--dark-blue)" : "#fff")};
-    border: 1px solid var(--dark-blue) !important;
-    border-radius: 10rem;
-    color: ${({ $type }) => ($type === "primary" ? "#fff" : "var(--dark-blue)")} !important;
-    font-size: 1.6rem;
-    font-weight: bold;
+    background-color: ${({ $type }) => ($type === "primary" ? "var(--blue-800)" : "#fff")};
+    border: 1px solid var(--blue-800) !important;
+    border-radius: 6.25rem;
+    color: ${({ $type }) => ($type === "primary" ? "#fff" : "var(--blue-800)")} !important;
+    font-size: 1rem;
+    font-family: "Trebuchet MS", sans-serif;
 
     width: ${({ $width }) => (typeof $width === "number" ? `${$width}px` : $width)};
     height: ${({ $height }) => (typeof $height === "number" ? `${$height}px` : $height)};
+
+    &:hover {
+      background-color: ${({ $type }) =>
+        $type === "primary" ? "var(--blue-600)" : "var(--blue-100)"};
+    }
   }
 `;

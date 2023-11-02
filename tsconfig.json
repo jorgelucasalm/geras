@@ -17,6 +17,8 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
+      "@assets": ["assets"],
+      "@assets/*": ["assets/*"],
       "@components": ["components"],
       "@components/*": ["components/*"],
       "@pages": ["pages"],
@@ -25,5 +27,5 @@
       "@utils/*": ["utils/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "*/src/types/img.d.ts", "types"]
 }

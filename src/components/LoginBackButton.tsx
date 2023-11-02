@@ -14,10 +14,10 @@ export default function LoginBackButton({ onClick }: Props) {
 }
 
 const Button = styled.button`
-  width: 4.8rem;
-  height: 4.8rem;
-  border-radius: 2.4rem;
-  border: 2px solid var(--dark-blue);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  border: 2px solid var(--blue-800);
   background-color: #fff;
   cursor: pointer;
 
@@ -26,8 +26,8 @@ const Button = styled.button`
   align-items: center;
 
   & > svg {
-    width: 2.4rem;
-    height: 2.4rem;
-    color: var(--dark-blue);
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--blue-800);
   }
 `;

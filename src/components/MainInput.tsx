@@ -33,27 +33,27 @@ const Main = styled.div<{ $width: Props["width"]; $height: Props["height"] }>`
   width: max-content;
 
   & > span {
-    border-radius: 10rem;
-    border: 1px solid var(--dark-blue) !important;
+    border-radius: 6.25rem;
+    border: 1px solid var(--blue-800) !important;
 
     width: ${({ $width }) => (typeof $width === "number" ? `${$width}px` : $width)};
     height: ${({ $height }) => (typeof $height === "number" ? `${$height}px` : $height)};
   }
 
   & > span > input {
-    color: var(--dark-blue);
-    font-size: 1.6rem;
+    color: var(--blue-800);
+    font-size: 1rem;
   }
 
   & .ant-input-prefix {
-    margin-right: 0.8rem;
+    margin-right: 0.5rem;
   }
 
   & .ant-input-prefix > svg,
   .ant-input-suffix > svg {
-    width: 2.4rem;
-    height: 2.4rem;
-    color: var(--dark-blue);
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--blue-800);
   }
 
   & .ant-input-suffix > svg:hover {
