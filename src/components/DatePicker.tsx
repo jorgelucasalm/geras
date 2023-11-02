@@ -1,23 +1,24 @@
-import { DatePicker as AntdDatePicker } from "antd";
+import { DatePicker as AntdDatePicker, DatePickerProps } from "antd";
 import { AiOutlineCalendar } from "react-icons/ai";
 import styled from "styled-components";
+import { Dayjs } from "dayjs";
+import { PickerDateProps } from "antd/es/date-picker/generatePicker";
 
-interface Props {
+interface Props extends PickerDateProps<Dayjs> {
   width: string | number;
   height: string | number;
-  nextIcon?: React.ReactNode;
 }
 
-export default function DatePicker({ width, height, nextIcon }: Props) {
+export default function DatePicker({ width, height, ...rest }: Props) {
   const DATE_FORMAT = "DD/MM/YYYY";
-  const deleteIcon = <AiOutlineCalendar />;
   return (
     <Input $width={width} $height={height}>
       <AntdDatePicker
         format={DATE_FORMAT}
         placeholder={DATE_FORMAT.toLowerCase()}
-        picker="date"
-        suffixIcon={deleteIcon}
+        suffixIcon={<AiOutlineCalendar />}
+        allowClear={false}
+        {...rest}
       />
     </Input>
   );

@@ -11,27 +11,44 @@ import { LuMail } from "react-icons/lu";
 import { FiLock } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
 import DatePicker from "@components/DatePicker";
+import { useState } from "react";
+import { Dayjs } from "dayjs";
+import { AxiosError } from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUpPage() {
   const [form] = Form.useForm();
   const rememberPasswordChecked = Form.useWatch<boolean>("rememberPassword", form);
+  const [date, setDate] = useState("");
+  const navigate = useNavigate();
+
+  type UserType = {
+    name: string;
+    email: string;
+    password: string;
+  };
 
   const loginMutation = useMutation({
-    mutationKey: ["user-login"],
-    mutationFn: async ({ login, password }: { login: string; password: string }) => {
-      const response = await api.post("/v1/user/login", { login, password });
+    mutationKey: ["user-signup"],
+    mutationFn: async ({ name, email, password }: UserType) => {
+      const response = await api.post("/v1/user/create", { name, email, birthage: date, password });
       console.log(response);
     },
     onMutate: () => {
-      const toastId = toast.loading("Logando...");
+      const toastId = toast.loading("Criando...");
 
       return { toastId };
     },
     onSuccess: (_, __, context) => {
       toastUpdate("Logado com sucesso", toast.TYPE.SUCCESS, context!.toastId);
+      navigate("/login");
     },
     onError: (err: Error, _, context) => {
-      toastUpdate("Error", toast.TYPE.ERROR, context!.toastId);
+      if (err instanceof AxiosError) {
+        toastUpdate("Error | " + err.response?.data.message, toast.TYPE.ERROR, context!.toastId);
+      } else {
+        toastUpdate("Error", toast.TYPE.ERROR, context!.toastId);
+      }
     },
   });
 
@@ -69,15 +86,14 @@ export default function SignUpPage() {
           </Form.Item>
 
           <Form.Item
-            name="dt-nascimento"
+            name="birthage"
             label="Data de nascimento"
-            initialValue=""
             validateFirst
             rules={[
               {
-                validator: (_, value: string) => {
-                  if (!value) {
-                    return Promise.reject("Digite seu nome");
+                validator: (_) => {
+                  if (!date) {
+                    return Promise.reject("Coloque uma data valida");
                   }
 
                   return Promise.resolve();
@@ -86,7 +102,14 @@ export default function SignUpPage() {
               },
             ]}
           >
-            <DatePicker width={296} height={48} />
+            <DatePicker
+              width={296}
+              height={48}
+              picker="date"
+              onChange={(e) => {
+                setDate(e!.toISOString());
+              }}
+            />
           </Form.Item>
 
           <Form.Item
