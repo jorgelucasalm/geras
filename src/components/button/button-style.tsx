@@ -10,8 +10,7 @@ export const Content = styled.button<ButtonProps>`
   padding: 0.4rem 1rem;
   width: 10rem;
   border-radius: 2rem;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 1rem;
   border: 1px solid var(--blue-800);
   cursor: pointer;
 

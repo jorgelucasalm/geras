@@ -2,7 +2,7 @@ import { LoginPage } from "@pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Home } from "./pages/home/home";
-import { Step } from "./pages/steps/steps";
+import { Step } from "./components/steps/steps";
 
 export const routes = () => {
   return (
