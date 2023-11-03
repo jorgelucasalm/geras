@@ -4,39 +4,21 @@ import { Container, FloatButton } from "./menu-simulation-style";
 import { MenuButton } from "@components/menuButton/menu-button";
 import { useLocation } from "react-router-dom";
 import Icon from "@assets/images/floatbutton.svg";
+import { Key } from "react";
 
-const itens = [
-  {
-    id: "1",
-    icon: "x",
-    label: "1",
-  },
-  {
-    id: "2",
-    icon: "x",
-    label: "2",
-  },
-  {
-    id: "3",
-    icon: "x",
-    label: "3",
-  },
-  {
-    id: "4",
-    icon: "x",
-    label: "4",
-  },
-];
+export function Simulation() {
+  const location = useLocation();
+  const { title, subtitle, messages } = location.state;
+  console.log(messages)
 
-export function MenuSimulation() {
   return (
     <Container>
       <Navbar />
-      <Header title="Mensagens" subtitle="Pratique como navegar em seus aplicativos favoritos" />
+      <Header title={title} subtitle={subtitle} />
 
       <section>
-        {itens.map((item) => {
-          return <MenuButton key={item.id} icon={item.icon} label={item.label} />;
+        {messages.map((message: { id: Key; icon: string; label: string }) => {
+          return <MenuButton key={message.id} icon={message.icon} label={message.label} />;
         })}
       </section>
 
@@ -46,22 +28,3 @@ export function MenuSimulation() {
     </Container>
   );
 }
-
-// Implementação futura
-// export function Navigation() {
-//   const location = useLocation();
-//   const { icon, label, url } = location.state;
-
-//   return (
-//     <Container>
-//       <Navbar />
-//       <Header title="Vamos começar?" subtitle="Passos" />
-
-//       <section>
-//         {itens.map((icon: any, label: string, index: number) => {
-//           return <MenuButton key={index} icon={icon} label={label} />;
-//         })}
-//       </section>
-//     </Container>
-//   );
-// }

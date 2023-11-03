@@ -1,7 +1,7 @@
 import { Content } from "./menu-button-style";
 
 interface MenuButtonProps {
-  icon: any;
+  icon?: any;
   label: string;
 }
 
