@@ -195,6 +195,11 @@ const Title = styled.h1`
 `;
 
 const FormDiv = styled.div<{ $rememberPasswordChecked: boolean }>`
+  & .ant-row.ant-form-item-row {
+    margin: 0 auto;
+    width: max-content;
+  }
+
   & .ant-form-item-label {
     padding-bottom: 0.2rem;
   }
