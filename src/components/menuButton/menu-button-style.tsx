@@ -15,6 +15,8 @@ export const Content = styled.div`
     background-color: var(--blue-100);
   }
   p {
+    text-align: center;
     line-height: 1.125rem;
+    max-width: 8rem;
   }
 `;

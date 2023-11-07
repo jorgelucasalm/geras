@@ -20,6 +20,8 @@ export const routes = () => {
         <Route path="/mensagem/criar-contato" element={<NewContact />} />
 
         <Route path="/email" element={<Simulation />} />
+        <Route path="/alimentacao" element={<Simulation />} />
+        <Route path="/transporte" element={<Simulation />} />
       </Routes>
     </BrowserRouter>
   );
