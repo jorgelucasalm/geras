@@ -31,7 +31,7 @@ const contacts = [
     id: 4,
     icon: Icon4,
     name: "Marlena",
-  },
+  }
 ];
 
 function StepFour() {

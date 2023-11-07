@@ -9,8 +9,8 @@ export const Content = styled.div`
   min-width: 18rem;
 
   span {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 100%;
 
     display: flex;
