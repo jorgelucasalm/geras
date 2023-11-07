@@ -8,16 +8,31 @@ import { Contact } from "../../components/contact/contact";
 
 import { PiChatTextLight } from "react-icons/pi";
 
+import Icon1 from "../../images/picture1.png";
+import Icon2 from "../../images/picture2.png";
+import Icon3 from "../../images/picture3.png";
+import Icon4 from "../../images/picture4.png";
+
 const contacts = [
   {
     id: 1,
-    icon: "X",
+    icon: Icon1,
     name: "Adriano",
   },
   {
     id: 2,
-    icon: "X",
-    name: "Leo",
+    icon: Icon2,
+    name: "Luiza",
+  },
+  {
+    id: 3,
+    icon: Icon3,
+    name: "Sara",
+  },
+  {
+    id: 4,
+    icon: Icon4,
+    name: "Marlena",
   },
 ];
 

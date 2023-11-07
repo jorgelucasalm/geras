@@ -3,20 +3,34 @@ import { Container, FloatButton, Input, InputBox, NewContactButton } from "../ne
 import { Header } from "@components/header/header";
 import { Navbar } from "@components/navbar/navbar";
 import { BottomBar } from "@components/bottombar/bottombar";
-import { Instruction } from "@components/instruction/instruction";
 import { GoPerson } from "react-icons/go";
 import { Contact } from "@pages/message/components/contact/contact";
+
+import Icon1 from "../../images/picture1.png";
+import Icon2 from "../../images/picture2.png";
+import Icon3 from "../../images/picture3.png";
+import Icon4 from "../../images/picture4.png";
 
 const contacts = [
   {
     id: 1,
-    icon: "X",
+    icon: Icon1,
     name: "Adriano",
   },
   {
     id: 2,
-    icon: "X",
-    name: "Leo",
+    icon: Icon2,
+    name: "Luiza",
+  },
+  {
+    id: 3,
+    icon: Icon3,
+    name: "Sara",
+  },
+  {
+    id: 4,
+    icon: Icon4,
+    name: "Marlena",
   },
 ];
 

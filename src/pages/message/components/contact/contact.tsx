@@ -8,7 +8,7 @@ interface ContactProps {
 export function Contact({ icon, name }: ContactProps) {
   return (
     <Content>
-      <span>{icon}</span>
+      <span><img src={icon}/></span>
       <p>{name}</p>
     </Content>
   );
