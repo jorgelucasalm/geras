@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Content } from "./menu-button-style";
 
 interface MenuButtonProps {
