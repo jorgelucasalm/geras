@@ -71,7 +71,7 @@ export function Simulation() {
         <Header title={title} subtitle={subtitle} />
 
         <section>
-          {simulations.map((simulation: { id: Key; icon: string; label: string; url: string }) => {
+          {simulations.map((simulation: { id: Key; icon: string; label: string; index: string, url: string }) => {
             return (
               <MenuButton
                 key={simulation.id}

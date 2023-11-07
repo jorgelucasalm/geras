@@ -91,7 +91,7 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     color: var(--blue-600);
-    font-weight: 600;
+    font-weight: 400;
   }
 `;
 

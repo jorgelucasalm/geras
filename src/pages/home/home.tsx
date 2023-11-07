@@ -15,7 +15,7 @@ export function Home() {
       <p>Geras</p>
       <Button>
         <Link
-          to={"/step-1"}
+          to={"/instrucao"}
           state={{
             steps,
             url: "/login",

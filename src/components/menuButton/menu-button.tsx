@@ -6,6 +6,7 @@ interface MenuButtonProps {
   label: string;
   url?: string;
   onclick: () => void;
+  index?: string
 }
 
 export function MenuButton({ icon, label, url, onclick }: MenuButtonProps) {

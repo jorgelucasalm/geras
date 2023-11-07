@@ -24,7 +24,6 @@ export const Card = styled.div`
   background-color: var(--white);
 
   width: 18.5rem;
-  height: 18.5rem;
 
   font-weight: 600;
   font-size: 1.125rem;
@@ -32,10 +31,6 @@ export const Card = styled.div`
 
   svg {
     color: var(--orange-400);
-  }
-
-  p {
-    font-weight: 400;
   }
 
   div {
