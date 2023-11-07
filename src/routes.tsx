@@ -8,6 +8,7 @@ import { Menu } from "@pages/menu/menu";
 import StepOne from "@pages/message/newContact/step-one/step-one";
 import StepTwo from "@pages/message/newContact/step-two/step-two";
 import StepThree from "@pages/message/newContact/step-three/step-three";
+import StepFour from "@pages/message/newContact/step-four/step-four";
 
 export const routes = () => {
   return (
@@ -22,6 +23,7 @@ export const routes = () => {
         <Route path="/mensagem/criar-contato/passo-1" element={<StepOne />} />
         <Route path="/mensagem/criar-contato/passo-2" element={<StepTwo />} />
         <Route path="/mensagem/criar-contato/passo-3" element={<StepThree />} />
+        <Route path="/mensagem/criar-contato/passo-4" element={<StepFour />} />
 
         <Route path="/email" element={<Simulation />} />
         <Route path="/alimentacao" element={<Simulation />} />

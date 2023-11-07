@@ -1,25 +1,9 @@
-import { Container, FloatButton, Input, InputBox } from "../new-contact-style";
+import { Container, Input, InputBox } from "../new-contact-style";
 
 import { Header } from "@components/header/header";
 import { Navbar } from "@components/navbar/navbar";
 import { BottomBar } from "@components/bottombar/bottombar";
 import { Instruction } from "@components/instruction/instruction";
-import { Contact } from "../../components/contact/contact";
-
-import { PiChatTextLight } from "react-icons/pi";
-
-const contacts = [
-  {
-    id: 1,
-    icon: "X",
-    name: "Adriano",
-  },
-  {
-    id: 2,
-    icon: "X",
-    name: "Leo",
-  },
-];
 
 function StepThree() {
   return (
