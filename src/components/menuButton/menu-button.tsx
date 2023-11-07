@@ -4,15 +4,14 @@ import { Content } from "./menu-button-style";
 interface MenuButtonProps {
   icon?: any;
   label: string;
-  url: string;
+  url?: string;
+  onclick: () => void;
 }
 
-export function MenuButton({ icon, label, url }: MenuButtonProps) {
+export function MenuButton({ icon, label, url, onclick }: MenuButtonProps) {
   return (
     <Content>
-      <Link to={url}>
-        <button>{icon}</button>
-      </Link>
+      <button onClick={onclick}>{icon}</button>
       <p>{label}</p>
     </Content>
   );

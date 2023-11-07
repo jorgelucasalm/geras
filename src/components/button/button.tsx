@@ -1,10 +1,11 @@
 import { Content } from "./button-style";
 
 interface ButtonProps {
-  children: any;
+  children: string;
   category?: string;
+  onclick?: () => void;
 }
 
-export function Button({ children, category }: ButtonProps) {
-  return <Content category={category}>{children}</Content>;
+export function Button({ children, category, onclick }: ButtonProps) {
+  return <Content category={category} onClick={onclick}>{children}</Content>;
 }

@@ -1,10 +1,13 @@
-import { Key } from "react";
+import { Key, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import { Header } from "@components/header/header";
 import { Navbar } from "@components/navbar/navbar";
 import { Container, FloatButton } from "./menu-simulation-style";
 import { MenuButton } from "@components/menuButton/menu-button";
+
+import { Alert } from "@components/alert/alert";
+
 import Icon from "@assets/images/floatbutton.svg";
 import {
   GoPerson,
@@ -58,27 +61,33 @@ export function Simulation() {
     }
   }
 
+  const [openModal, setOpenModal] = useState(false);
+
   return (
-    <Container>
-      <Navbar />
-      <Header title={title} subtitle={subtitle} />
+    <>
+      <Alert isOpen={openModal} closeModal={() => setOpenModal(!openModal)} />
+      <Container>
+        <Navbar />
+        <Header title={title} subtitle={subtitle} />
 
-      <section>
-        {simulations.map((simulation: { id: Key; icon: string; label: string, url: string}) => {
-          return (
-            <MenuButton
-              key={simulation.id}
-              label={simulation.label}
-              url={simulation.url}
-              icon={getIcon(simulation.icon)}
-            />
-          );
-        })}
-      </section>
+        <section>
+          {simulations.map((simulation: { id: Key; icon: string; label: string; url: string }) => {
+            return (
+              <MenuButton
+                key={simulation.id}
+                label={simulation.label}
+                url={simulation.url}
+                icon={getIcon(simulation.icon)}
+                onclick={() => setOpenModal(true)}
+              />
+            );
+          })}
+        </section>
 
-      <FloatButton>
-        <img src={Icon} />
-      </FloatButton>
-    </Container>
+        <FloatButton>
+          <img src={Icon} />
+        </FloatButton>
+      </Container>
+    </>
   );
 }

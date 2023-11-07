@@ -6,6 +6,7 @@ import { Step } from "./components/steps/steps";
 import { Simulation } from "@pages/menuSimulation/menu-simulation";
 import { NewContact } from "@pages/message/newContact/new-contact";
 import { Menu } from "@pages/menu/menu";
+import { Alert } from "@components/alert/alert";
 
 export const routes = () => {
   return (
@@ -22,6 +23,8 @@ export const routes = () => {
         <Route path="/email" element={<Simulation />} />
         <Route path="/alimentacao" element={<Simulation />} />
         <Route path="/transporte" element={<Simulation />} />
+        
+        <Route path="/teste" element={<Alert />} />
       </Routes>
     </BrowserRouter>
   );
