@@ -1,11 +1,15 @@
 import { Button } from "@components/button/button";
 import { Content } from "./bottombar-style";
 
-export function BottomBar() {
+interface BottomBarProps {
+  onclick?: () => void;
+}
+
+export function BottomBar({ onclick }: BottomBarProps) {
   return (
     <Content>
       <Button category={"secundary"}>Anterior</Button>
-      <Button>Próximo</Button>
+      <Button onclick={onclick}>Próximo</Button>
     </Content>
   );
 }
