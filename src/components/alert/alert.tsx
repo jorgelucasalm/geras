@@ -3,33 +3,19 @@ import { Card, Content } from "./alert-style";
 import { PiWarningOctagonBold } from "react-icons/pi";
 import { Link, useLocation } from "react-router-dom";
 import { Key } from "react";
+import StepsData from "./steps.json"
 
 interface AlertProps {
   isOpen: boolean;
   closeModal: () => void;
+  moduleId: Key;
   simulationId: Key;
+  index: number;
 }
 
-export function Alert({ isOpen, closeModal, simulationId }: AlertProps) {
+export function Alert({ isOpen, closeModal, moduleId, simulationId, index }: AlertProps) {
 
-  const steps = [
-    {
-      url: "/mensagem/",
-      instucions: ["Termos e condições", "Informar número", "Validar o número", "Foto e nome"],
-    },
-    {
-      url: "/mensagem/criar-contato/passo-1",
-      instucions: ["Lista de contatos", "Informar número", "Salvar"],
-    },
-    {
-      url: "/mensagem/",
-      instucions: ["Escolher contato", "Abrir contato", "Enviar mensagem"],
-    },
-    {
-      url: "/mensagem/",
-      instucions: ["Pesquisar", "Escolher aplicativo", "Instalar apliativo"],
-    },
-  ];
+  const steps = StepsData;
 
   if (isOpen) {
     return (
@@ -43,8 +29,8 @@ export function Alert({ isOpen, closeModal, simulationId }: AlertProps) {
               <Link
                 to={"/instrucao"}
                 state={{
-                  steps: steps[Number(simulationId) - 1].instucions,
-                  url: steps[Number(simulationId) - 1].url,
+                  steps: steps[index][Number(moduleId) - 1].instrucions,
+                  url: steps[index][Number(moduleId) - 1].url,
                   render: false,
                 }}
               >

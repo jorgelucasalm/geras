@@ -25,7 +25,7 @@ import { FloatButton } from "@components/floatButton/float-button";
 
 export function Simulation() {
   const location = useLocation();
-  const { title, subtitle, simulations } = location.state;
+  const { title, subtitle, simulations, index } = location.state;
 
   function getIcon(icon: string) {
     switch (icon) {
@@ -62,14 +62,17 @@ export function Simulation() {
   }
 
   const [openModal, setOpenModal] = useState(false);
-  const [simulationId, setSimulationId] = useState<Key>(" ");
+  const [moduleId, setmMduleId] = useState<Key>(" ");
+  const [simulationId, setSimulationId] = useState<Key>("");
 
   return (
     <>
       <Alert
         isOpen={openModal}
         closeModal={() => setOpenModal(!openModal)}
+        moduleId={moduleId}
         simulationId={simulationId}
+        index={index}
       />
       <Container>
         <Navbar />
@@ -77,14 +80,17 @@ export function Simulation() {
 
         <section>
           {simulations.map(
-            (simulation: { id: Key; icon: string; label: string; index: string; url: string }) => {
+            (simulation: { id: Key; icon: string; label: string; index: string; }) => {
               return (
                 <MenuButton
                   key={simulation.id}
                   label={simulation.label}
-                  url={simulation.url}
                   icon={getIcon(simulation.icon)}
-                  onclick={() => {setOpenModal(true); setSimulationId(simulation.id)}}
+                  onclick={() => {
+                    setOpenModal(true);
+                    setmMduleId(simulation.id);
+                    setSimulationId(index);
+                  }}
                 />
               );
             },

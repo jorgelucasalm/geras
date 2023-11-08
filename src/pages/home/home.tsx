@@ -2,12 +2,10 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/images/primary-logo.png";
 import { Button } from "../../components/button/button";
 import { Container } from "./home-style";
+import StepsData from "./steps.json"
 
 export function Home() {
-  const steps = [
-    "Aprenda a criar um e-mail", 
-    "Entrar no GERAS"
-  ];
+  const steps = StepsData;
 
   return (
     <Container>
