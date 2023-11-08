@@ -18,7 +18,7 @@ export function EndAlert({ isOpen, closeModal }: EndAlertProps) {
           <p>Vá para a próxima seção!</p>
           <div>
             <Button onclick={closeModal}>
-              <Link to={"/home"}>Finalizar</Link>
+              <Link to={"/home"}>Tela Inicial</Link>
             </Button>
           </div>
         </Card>

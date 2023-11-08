@@ -34,6 +34,13 @@ export const FloatButton = styled.div`
     border: none;
     border-radius: 0.5rem;
     background: var(--blue-100);
+    transition: all .5s ease-in-out;
+
+    &:hover{
+      background-color: var(--blue-600);
+      color: var(--white);
+      transition: all .5s ease-in-out;
+    }
   }
 `;
 
