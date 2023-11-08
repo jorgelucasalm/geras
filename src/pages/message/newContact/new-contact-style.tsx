@@ -9,6 +9,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   height: auto;
+  margin-bottom: 9rem;
 
   section {
     display: flex;

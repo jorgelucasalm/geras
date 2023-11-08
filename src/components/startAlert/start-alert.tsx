@@ -1,19 +1,18 @@
 import { Button } from "@components/button/button";
-import { Card, Content } from "./alert-style";
+import { Card, Content } from "./start-alert-style";
 import { PiWarningOctagonBold } from "react-icons/pi";
 import { Link, useLocation } from "react-router-dom";
 import { Key } from "react";
 import StepsData from "./steps.json"
 
-interface AlertProps {
+interface StartAlertProps {
   isOpen: boolean;
   closeModal: () => void;
   moduleId: Key;
-  simulationId: Key;
   index: number;
 }
 
-export function Alert({ isOpen, closeModal, moduleId, simulationId, index }: AlertProps) {
+export function StartAlert({ isOpen, closeModal, moduleId, index }: StartAlertProps) {
 
   const steps = StepsData;
 

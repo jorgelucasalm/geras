@@ -6,7 +6,7 @@ import { Navbar } from "@components/navbar/navbar";
 import { Container } from "./menu-simulation-style";
 import { MenuButton } from "@components/menuButton/menu-button";
 
-import { Alert } from "@components/alert/alert";
+import { StartAlert } from "@components/startAlert/start-alert";
 
 import {
   GoPerson,
@@ -63,15 +63,13 @@ export function Simulation() {
 
   const [openModal, setOpenModal] = useState(false);
   const [moduleId, setmMduleId] = useState<Key>(" ");
-  const [simulationId, setSimulationId] = useState<Key>("");
 
   return (
     <>
-      <Alert
+      <StartAlert
         isOpen={openModal}
         closeModal={() => setOpenModal(!openModal)}
         moduleId={moduleId}
-        simulationId={simulationId}
         index={index}
       />
       <Container>
@@ -89,7 +87,6 @@ export function Simulation() {
                   onclick={() => {
                     setOpenModal(true);
                     setmMduleId(simulation.id);
-                    setSimulationId(index);
                   }}
                 />
               );
