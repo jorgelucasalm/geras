@@ -21,7 +21,7 @@ function StepThree() {
         </InputBox>
       </section>
 
-      <BottomBar />
+      <BottomBar preview="/mensagem/criar-contato/passo-2" next="/mensagem/criar-contato/passo-4" />
     </Container>
   );
 }

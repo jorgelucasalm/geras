@@ -56,7 +56,7 @@ function StepTwo() {
           return <Contact key={contact.id} icon={contact.icon} name={contact.name} />;
         })}
       </section>
-      <BottomBar />
+      <BottomBar preview="/mensagem/criar-contato/passo-1" next="/mensagem/criar-contato/passo-3" />
     </Container>
   );
 }

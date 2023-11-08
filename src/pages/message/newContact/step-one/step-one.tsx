@@ -55,7 +55,7 @@ function StepOne() {
         </button>
       </FloatButton>
 
-      <BottomBar />
+      <BottomBar preview="/mensagem" next="/mensagem/criar-contato/passo-2" />
     </Container>
   );
 }

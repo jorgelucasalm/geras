@@ -61,9 +61,13 @@ function StepFour() {
           })}
         </section>
 
-        <BottomBar onclick={() => {
+        <BottomBar
+          preview="/mensagem/criar-contato/passo-3"
+          next=""
+          onclick={() => {
             setOpenModal(true);
-          }}/>
+          }}
+        />
       </Container>
     </>
   );

@@ -1,6 +1,7 @@
 import { PiConfettiBold } from "react-icons/pi";
 import { Card, Content } from "./end-alert-style";
 import { Button } from "@components/button/button";
+import { Link } from "react-router-dom";
 
 interface EndAlertProps {
   isOpen: boolean;
@@ -16,7 +17,9 @@ export function EndAlert({ isOpen, closeModal }: EndAlertProps) {
           <PiConfettiBold size={32} />
           <p>Vá para a próxima seção!</p>
           <div>
-            <Button onclick={closeModal}>Finalizar</Button>
+            <Button onclick={closeModal}>
+              <Link to={"/home"}>Finalizar</Link>
+            </Button>
           </div>
         </Card>
       </Content>
