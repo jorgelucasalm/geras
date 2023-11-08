@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Content = styled.div`
+interface ContenteProps {
+  color?: string;
+}
+
+export const Content = styled.div<ContenteProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,14 +16,49 @@ export const Content = styled.div`
     height: 8rem;
     border: none;
     border-radius: 100%;
-    background-color: var(--blue-100);
-    transition: all .2s ease-in-out;
+    transition: all 0.4s ease-in-out;
+
+    background-color: ${(props) => {
+      switch (props.color) {
+        case "pink":
+          return "var(--pink-200)";
+        case "orange":
+          return "var(--orange-200)";
+        case "green":
+          return "var(--green-200)";
+        default:
+          return "var(--blue-100)";
+      }
+    }};
 
     &:hover {
-      border: 10px solid var(--blue-600);
-      transition: all .2s ease-in-out;
-      background-color: var(--blue-600);
-      
+      transition: all 0.4s ease-in-out;
+      border: 40px solid
+        ${(props) => {
+          switch (props.color) {
+            case "pink":
+              return "var(--pink-600)";
+            case "orange":
+              return "var(--orange-800)";
+            case "green":
+              return "var(--green-400)";
+            default:
+              return "var(--blue-400)";
+          }
+        }};
+      background-color: ${(props) => {
+        switch (props.color) {
+          case "pink":
+            return "var(--pink-600)";
+          case "orange":
+            return "var(--orange-800)";
+          case "green":
+            return "var(--green-400)";
+          default:
+            return "var(--blue-400)";
+        }
+      }};
+
       svg {
         color: var(--white);
       }
@@ -33,6 +72,6 @@ export const Content = styled.div`
   }
 
   svg {
-    color: var(--blue-600);
+    color: var(--black-900);
   }
 `;

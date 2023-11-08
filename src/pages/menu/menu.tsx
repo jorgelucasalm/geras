@@ -1,27 +1,34 @@
 import { Link } from "react-router-dom";
 import SimulationsData from "./simulations.json";
+import { Container } from "./menu-style";
+import { MenuButton } from "@components/menuButton/menu-button";
+import { Navbar } from "@components/navbar/navbar";
+import { CiAt, CiPizza } from "react-icons/ci";
+import {
+  PiBroadcastLight,
+  PiCarLight,
+  PiChatDotsLight,
+  PiGearLight,
+  PiStarLight,
+} from "react-icons/pi";
+import { Header } from "@components/header/header";
+import { GoQuestion } from "react-icons/go";
+
+import Logo from "@assets/images/secundary-logo.png";
 
 export function Menu() {
   const simulations = SimulationsData;
 
   return (
-    <>
-      <h1>Tela inicial</h1>
-      <button>
-        <Link
-          to={"/mensagem"}
-          state={{
-            simulations: simulations[0],
-            index: 0,
-            title: "Mensagens",
-            subtitle: "Pratique como navegar em seus aplicativos favoritos.",
-          }}
-        >
-          Mensagens
-        </Link>
-      </button>
+    <Container>
+      <nav>
+        <div>
+          <img src={Logo} />
+        </div>
+      </nav>
+      <Header title="Vamos praticar?" subtitle="" />
 
-      <button>
+      <section>
         <Link
           to={"/email"}
           state={{
@@ -31,11 +38,20 @@ export function Menu() {
             subtitle: "Pratique como usar a sua conta de e-mail.",
           }}
         >
-          E-mail
+          <MenuButton color={"pink"} label="E-mail" icon={<CiAt size={40} />} />
         </Link>
-      </button>
+        <Link
+          to={"/mensagem"}
+          state={{
+            simulations: simulations[0],
+            index: 0,
+            title: "Mensagens",
+            subtitle: "Pratique como navegar em seus aplicativos favoritos.",
+          }}
+        >
+          <MenuButton color={"green"} label="Mensagem" icon={<PiChatDotsLight size={40} />} />
+        </Link>
 
-      <button>
         <Link
           to={"/alimentacao"}
           state={{
@@ -45,11 +61,9 @@ export function Menu() {
             subtitle: "Pratique como pedir comida por aplicativos.",
           }}
         >
-          Alimentação
+          <MenuButton color={"orange"} label="Alimentação" icon={<CiPizza size={40} />} />
         </Link>
-      </button>
 
-      <button>
         <Link
           to={"/transporte"}
           state={{
@@ -59,9 +73,37 @@ export function Menu() {
             subtitle: "Pratique como navegar em seus aplicativos de transporte favoritos.",
           }}
         >
-          Transporte
+          <MenuButton label="Transporte" icon={<PiCarLight size={40} />} />
         </Link>
-      </button>
-    </>
+      </section>
+
+      <footer>
+        <div>
+          <span>
+            <Link to={"/"}>
+              <PiStarLight size={28} />
+            </Link>
+          </span>
+
+          <span>
+            <Link to={"/"}>
+              <PiBroadcastLight size={28} />
+            </Link>
+          </span>
+
+          <span>
+            <Link to={"/"}>
+              <PiGearLight size={28} />
+            </Link>
+          </span>
+
+          <span>
+            <Link to={"/"}>
+              <GoQuestion size={28} />
+            </Link>
+          </span>
+        </div>
+      </footer>
+    </Container>
   );
 }

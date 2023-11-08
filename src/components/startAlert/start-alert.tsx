@@ -1,7 +1,7 @@
 import { Button } from "@components/button/button";
 import { Card, Content } from "./start-alert-style";
 import { PiWarningOctagonBold } from "react-icons/pi";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Key } from "react";
 import StepsData from "./steps.json"
 
@@ -13,7 +13,6 @@ interface StartAlertProps {
 }
 
 export function StartAlert({ isOpen, closeModal, moduleId, index }: StartAlertProps) {
-
   const steps = StepsData;
 
   if (isOpen) {
