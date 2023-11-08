@@ -1,0 +1,100 @@
+[
+  [
+    {
+      "id": "1",
+      "icon": "GoPerson",
+      "label": "Criar conta",
+      "url": "/mensagem/criar-contato"
+    },
+    {
+      "id": "2",
+      "icon": "GoPersonAdd",
+      "label": "Novo contato",
+      "url": "/"
+    },
+    {
+      "id": "3",
+      "icon": "GoCommentDiscussion",
+      "label": "Enviar mensagem",
+      "url": "/"
+    },
+    {
+      "id": "4",
+      "icon": "GoMoveToBottom",
+      "label": "Instalação",
+      "url": "/"
+    }
+  ],
+  [
+    {
+      "id": "1",
+      "icon": "GoMention",
+      "label": "Criar conta",
+      "url": "/"
+    },
+    {
+      "id": "2",
+      "icon": "GoUnlock",
+      "label": "Esqueci minha senha",
+      "url": "/"
+    },
+    {
+      "id": "3",
+      "icon": "GoKey",
+      "label": "Acessar conta",
+      "url": "/"
+    }
+  ],
+  [
+    {
+      "id": "1",
+      "icon": "GoPerson",
+      "label": "Entrar",
+      "url": "/"
+    },
+    {
+      "id": "2",
+      "icon": "BiSearch",
+      "label": "Pesquisar",
+      "url": "/"
+    },
+    {
+      "id": "3",
+      "icon": "CiPizza",
+      "label": "Fazer Pedido",
+      "url": "/"
+    },
+    {
+      "id": "4",
+      "icon": "GoMoveToBottom",
+      "label": "Instalação",
+      "url": "/"
+    }
+  ],
+  [
+    {
+      "id": "1",
+      "icon": "GoMilestone",
+      "label": "Novo destino",
+      "url": "/"
+    },
+    {
+      "id": "2",
+      "icon": "BiCar",
+      "label": "Veículo",
+      "url": "/"
+    },
+    {
+      "id": "3",
+      "icon": "BiMapAlt",
+      "label": "Solicitar viagem",
+      "url": "/"
+    },
+    {
+      "id": "4",
+      "icon": "GoMoveToBottom",
+      "label": "Instalação",
+      "url": "/"
+    }
+  ]
+]
