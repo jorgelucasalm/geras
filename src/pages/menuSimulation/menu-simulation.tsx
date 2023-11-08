@@ -78,12 +78,13 @@ export function Simulation() {
 
         <section>
           {simulations.map(
-            (simulation: { id: Key; icon: string; label: string; index: string; }) => {
+            (simulation: { id: Key; icon: string; label: string; color: string; index: string; }) => {
               return (
                 <MenuButton
                   key={simulation.id}
                   label={simulation.label}
                   icon={getIcon(simulation.icon)}
+                  color={simulation.color}
                   onclick={() => {
                     setOpenModal(true);
                     setmMduleId(simulation.id);
