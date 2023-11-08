@@ -62,10 +62,15 @@ export function Simulation() {
   }
 
   const [openModal, setOpenModal] = useState(false);
+  const [simulationId, setSimulationId] = useState<Key>(" ");
 
   return (
     <>
-      <Alert isOpen={openModal} closeModal={() => setOpenModal(!openModal)} />
+      <Alert
+        isOpen={openModal}
+        closeModal={() => setOpenModal(!openModal)}
+        simulationId={simulationId}
+      />
       <Container>
         <Navbar />
         <Header title={title} subtitle={subtitle} />
@@ -79,7 +84,7 @@ export function Simulation() {
                   label={simulation.label}
                   url={simulation.url}
                   icon={getIcon(simulation.icon)}
-                  onclick={() => setOpenModal(true)}
+                  onclick={() => {setOpenModal(true); setSimulationId(simulation.id)}}
                 />
               );
             },
