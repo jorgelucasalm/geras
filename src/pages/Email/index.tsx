@@ -1,49 +1,84 @@
-import { MainButton } from "@components";
-import LoginBackButton from "@components/LoginBackButton";
 import MainInput from "@components/MainInput";
+import { Navbar } from "@components/nav/nav";
+import { Footer } from "@components/footer/footer";
 import { useMutation } from "@tanstack/react-query";
 import api from "@utils/api";
 import toastUpdate from "@utils/toastUpdate";
-import { Form } from "antd";
+import { Checkbox, Form, Input, Select } from "antd";
+import { AxiosError } from "axios";
+import { AiOutlineUser } from "react-icons/ai";
+import { FiLock } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styled from "styled-components";
-import { LuMail } from "react-icons/lu";
-import { FiLock } from "react-icons/fi";
-import { AiOutlineUser } from "react-icons/ai";
 import DatePicker from "@components/DatePicker";
-import { useState } from "react";
-import { Dayjs } from "dayjs";
-import { AxiosError } from "axios";
-import { useNavigate } from "react-router-dom";
+import { MainSelect } from "@components/select/select";
+import { LuMail, LuPhone } from "react-icons/lu";
 
 export default function Email() {
-  const [form] = Form.useForm();
-  const [date, setDate] = useState("");
+  return Step5();
+}
 
+function Step1() {
   return (
     <Main>
-      <LoginBackButton />
-      <Title>XD</Title>
+      <Navbar />
+      <Section>
+        <Header>
+          <h1>Passo 1</h1>
+          <h2>Insira seus dados</h2>
+        </Header>
+        <Content>
+          <Alert>
+            <p>É necessário fornecer o seu nome e sobrenome para começar o processo de registro!</p>
+          </Alert>
+          <MainInput width={296} height={48} prefix={<AiOutlineUser />} placeholder="Nome" />
+          <MainInput width={296} height={48} prefix={<AiOutlineUser />} placeholder="Sobrenome" />
+        </Content>
+      </Section>
+      <Footer />
+    </Main>
+  );
+}
 
-      <FormDiv>
-        <Form form={form} layout="vertical" onFinish={() => {}}>
-          <Form.Item
-            name="email"
-            label="E-mail"
-            initialValue=""
-            rules={[
-              {
-                validator: (_, value: string) => {
-                  if (!value) {
-                    return Promise.reject("Insira uma senha");
-                  }
+function Step2() {
+  return (
+    <Main>
+      <Navbar />
+      <Section>
+        <Header>
+          <h1>Passo 2</h1>
+          <h2>Informe seus dados</h2>
+        </Header>
+        <Content>
+          <Alert>
+            <p>
+              A data de nascimento é uma informação importante para medidas de segurança cabíveis.
+            </p>
+          </Alert>
+          <DatePicker width={296} height={48} picker="date" placeholder="dia/mês/ano" />
+          <MainSelect />
+        </Content>
+      </Section>
+      <Footer />
+    </Main>
+  );
+}
 
-                  return Promise.resolve();
-                },
-                validateTrigger: "submit",
-              },
-            ]}
-          >
+function Step3() {
+  return (
+    <Main>
+      <Navbar />
+      <Section>
+        <Header>
+          <h1>Passo 3</h1>
+          <h2>Escolha o seu endereço de e-mail.</h2>
+        </Header>
+        <Content>
+          <Alert>
+            <p>Seu e-mail é seu endereço digital e por onde pessoas lhe enviarão mensagens.</p>
+          </Alert>
+          <Form.Item name="email" label="E-mail">
             <MainInput
               width={296}
               height={48}
@@ -51,24 +86,27 @@ export default function Email() {
               placeholder="example@gmail.com"
             />
           </Form.Item>
+        </Content>
+      </Section>
+      <Footer />
+    </Main>
+  );
+}
 
-          <Form.Item
-            name="password"
-            label="Senha"
-            initialValue=""
-            rules={[
-              {
-                validator: (_, value: string) => {
-                  if (!value) {
-                    return Promise.reject("Insira uma senha");
-                  }
-
-                  return Promise.resolve();
-                },
-                validateTrigger: "submit",
-              },
-            ]}
-          >
+function Step4() {
+  return (
+    <Main>
+      <Navbar />
+      <Section>
+        <Header>
+          <h1>Passo 4</h1>
+          <h2>Use uma combinação de letras, números e símbolos</h2>
+        </Header>
+        <Content>
+          <Alert>
+            <p>Use uma combinação de letras, números e símbolos</p>
+          </Alert>
+          <Form.Item name="pass" label="Senha" style={{ marginBottom: 0 }}>
             <MainInput.Password
               width={296}
               height={48}
@@ -76,54 +114,77 @@ export default function Email() {
               placeholder="********"
             />
           </Form.Item>
-        </Form>
-      </FormDiv>
-
-      <MainButton
-        buttonType="primary"
-        width={216}
-        height={48}
-        style={{ margin: "0 auto", marginBottom: "2.4rem" }}
-        onClick={() => form.submit()}
-      >
-        Cadastrar
-      </MainButton>
-      <MainButton buttonType="secondary" width={216} height={48} style={{ margin: "0 auto" }}>
-        Já tenho conta
-      </MainButton>
+          <Form.Item name="re-pass" label="Confirmar senha">
+            <MainInput.Password
+              width={296}
+              height={48}
+              prefix={<FiLock />}
+              placeholder="********"
+            />
+          </Form.Item>
+        </Content>
+      </Section>
+      <Footer />
     </Main>
   );
 }
 
-const Main = styled.main`
+function Step5() {
+  return (
+    <Main>
+      <Navbar />
+      <Section>
+        <Header>
+          <h1>Passo 5</h1>
+          <h2>Adicionar número de telefone.</h2>
+        </Header>
+        <Content>
+          <Alert>
+            <p>Seu número pode ser usado para recuperar a sua senha, caso você esqueça. </p>
+          </Alert>
+          <Form.Item name="phone" label="Número" style={{ marginBottom: 0 }}>
+            <MainInput
+              width={296}
+              height={48}
+              prefix={<LuPhone />}
+              placeholder="(00) 9 0000-0000"
+            />
+          </Form.Item>
+        </Content>
+      </Section>
+      <Footer />
+    </Main>
+  );
+}
+
+const Main = styled.div``;
+
+const Section = styled.main`
   margin: 0 auto;
-  padding: 4.2rem 3.2rem;
-  max-width: 36rem;
-  max-height: 80rem;
+  padding: 2.625rem 2rem;
+  max-width: 22.5rem;
+  max-height: 50rem;
 `;
 
-const Title = styled.h1`
-  color: var(--dark-blue);
-  font-size: 2.4rem;
-  margin: 0 auto;
-  width: max-content;
-`;
-
-const FormDiv = styled.div`
-  & .ant-row.ant-form-item-row {
-    margin: 0 auto;
-    width: max-content;
-  }
-
-  & .ant-form-item-label {
-    padding-bottom: 0.2rem;
-  }
-
-  & .ant-form-item-label > label {
-    color: var(--dark-blue);
-  }
-
-  & .ant-input-affix-wrapper-status-error {
-    border-color: #ff4d4f !important;
+const Header = styled.header`
+  text-align: center;
+  & h2 {
+    margin: 0.8rem 0rem;
   }
 `;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
+
+const Alert = styled.div`
+  border-radius: 24px 24px 24px 4px;
+  border: 2px solid #ffc530;
+  background: #ffefc6;
+
+  padding: 1rem;
+`;
+
+// const Footer = styled.footer``;
