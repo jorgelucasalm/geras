@@ -230,4 +230,12 @@ const FormDiv = styled.div<{ $rememberPasswordChecked: boolean }>`
   & .ant-input-affix-wrapper-status-error {
     border-color: #ff4d4f !important;
   }
+
+  & .ant-picker {
+    border: 1px solid var(--blue-800) !important;
+  }
+
+  & .ant-picker-input > span {
+    color: var(--blue-800);
+  }
 `;
