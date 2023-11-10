@@ -54,6 +54,7 @@ export function Step2() {
 }
 
 export function Step3() {
+  const [form] = Form.useForm();
   return (
     <Section>
       <Header>
@@ -64,15 +65,23 @@ export function Step3() {
         <Alert>
           <p>Seu e-mail é seu endereço digital e por onde pessoas lhe enviarão mensagens.</p>
         </Alert>
-        <Form.Item name="email" label="E-mail">
-          <MainInput width={296} height={48} prefix={<LuMail />} placeholder="example@gmail.com" />
-        </Form.Item>
+        <Form form={form} layout="vertical" onFinish={() => {}}>
+          <Form.Item name="email" label="E-mail">
+            <MainInput
+              width={296}
+              height={48}
+              prefix={<LuMail />}
+              placeholder="example@gmail.com"
+            />
+          </Form.Item>
+        </Form>
       </Content>
     </Section>
   );
 }
 
 export function Step4() {
+  const [form] = Form.useForm();
   return (
     <Section>
       <Header>
@@ -83,18 +92,31 @@ export function Step4() {
         <Alert>
           <p>Use uma combinação de letras, números e símbolos</p>
         </Alert>
-        <Form.Item name="pass" label="Senha" style={{ marginBottom: 0 }}>
-          <MainInput.Password width={296} height={48} prefix={<FiLock />} placeholder="********" />
-        </Form.Item>
-        <Form.Item name="re-pass" label="Confirmar senha">
-          <MainInput.Password width={296} height={48} prefix={<FiLock />} placeholder="********" />
-        </Form.Item>
+        <Form form={form} layout="vertical">
+          <Form.Item name="pass" label="Senha">
+            <MainInput.Password
+              width={296}
+              height={48}
+              prefix={<FiLock />}
+              placeholder="********"
+            />
+          </Form.Item>
+          <Form.Item name="re-pass" label="Confirmar senha">
+            <MainInput.Password
+              width={296}
+              height={48}
+              prefix={<FiLock />}
+              placeholder="********"
+            />
+          </Form.Item>
+        </Form>
       </Content>
     </Section>
   );
 }
 
 export function Step5() {
+  const [form] = Form.useForm();
   return (
     <Section>
       <Header>
@@ -105,9 +127,17 @@ export function Step5() {
         <Alert>
           <p>Seu número pode ser usado para recuperar a sua senha, caso você esqueça. </p>
         </Alert>
-        <Form.Item name="phone" label="Número" style={{ marginBottom: 0 }}>
-          <MainInput width={296} height={48} prefix={<LuPhone />} placeholder="(00) 9 0000-0000" />
-        </Form.Item>
+
+        <Form form={form} layout="vertical">
+          <Form.Item name="phone" label="Número" style={{ marginBottom: 0 }}>
+            <MainInput
+              width={296}
+              height={48}
+              prefix={<LuPhone />}
+              placeholder="(00) 9 0000-0000"
+            />
+          </Form.Item>
+        </Form>
       </Content>
     </Section>
   );

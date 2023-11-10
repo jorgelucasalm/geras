@@ -7,8 +7,6 @@ import { useState } from "react";
 
 export default function Email() {
   const [step, setStep] = useState(1);
-  console.log(step);
-
   return (
     <Main>
       <Navbar />
