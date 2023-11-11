@@ -1,18 +1,19 @@
 import { Input, InputProps } from "antd";
 import styled from "styled-components";
-import { LuMail } from "react-icons/lu";
-import { FiLock } from "react-icons/fi";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { CiCalendarDate } from "react-icons/ci";
+import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlineCalendar } from "react-icons/ai";
+import { IconType } from "react-icons";
 
 interface Props extends InputProps {
   width: string | number;
   height: string | number;
+  prefix?: React.ReactNode;
 }
 
 export default function MainInput({ width, height, ...rest }: Props) {
   return (
     <Main $width={width} $height={height}>
-      <Input prefix={<LuMail />} {...rest} />
+      <Input {...rest} />
     </Main>
   );
 }
@@ -21,7 +22,6 @@ function MainInputPassword({ width, height, ...rest }: Props) {
   return (
     <Main $width={width} $height={height}>
       <Input.Password
-        prefix={<FiLock />}
         iconRender={(visible) => (visible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />)}
         {...rest}
       />

@@ -1,4 +1,5 @@
 import { LoginPage } from "@pages";
+import SignUpPage from "@pages/Signup";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Home } from "./pages/home/home";
@@ -16,7 +17,8 @@ export const routes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/instrucao" element={<Step />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/cadastro" element={<SignUpPage />} />
+        <Route path="/entrar" element={<LoginPage />} />
         <Route path="/home" element={<Menu />} />
 
         <Route path="/mensagem" element={<Simulation />} />
