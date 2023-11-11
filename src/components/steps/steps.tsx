@@ -1,5 +1,4 @@
-import { BsArrowLeftCircle } from "react-icons/bs";
-import Logo from "../../assets/images/primary-logo.png";
+import { Navbar } from "@components/navbar/navbar";
 import { Button } from "../button/button";
 import { Header } from "../header/header";
 import { Container, Content, Instruction } from "./steps-style";
@@ -9,15 +8,9 @@ export function Step() {
   const location = useLocation();
   const { steps, url, render } = location.state;
 
-  console.log(steps);
-
   return (
     <Container>
-      <nav>
-        <BsArrowLeftCircle size={24} /> {/*como fazer funcionar? */}
-        <img src={Logo} />
-      </nav>
-
+      <Navbar/>
       <Header title="Vamos começar?" subtitle="Passos" />
 
       <section>

@@ -60,14 +60,18 @@ const GlobalStyle = createGlobalStyle`
 
     --blue-800: #08084A;
     --blue-600: #00336f;
+    --blue-400: #478FE3;
     --blue-100: #EAF4FF;
 
+    --pink-600: #BF87E1;
     --pink-200: #F3E1FF;
+    --orange-800: #FFC581;
     --orange-600: #FFBF00;
     --orange-400: #FFC530;
     --orange-200: #FFE0BB;
-
     --green-500: #00CC08;
+    
+    --green-400: #A3F09C;
     --green-200: #C2F2BE;
   }
 
@@ -91,7 +95,7 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     color: var(--blue-600);
-    font-weight: 600;
+    font-weight: 400;
   }
 `;
 

@@ -1,0 +1,131 @@
+[
+  [
+    {
+      "url": "/mensagem/",
+      "instrucions": [
+        "Termos e condições", 
+        "Informar número", 
+        "Validar o número", 
+        "Foto e nome"
+      ]
+    },
+    {
+      "url": "/mensagem/criar-contato/passo-1",
+      "instrucions": [
+        "Lista de contatos", 
+        "Informar número", 
+        "Salvar"
+      ]
+    },
+    {
+      "url": "/mensagem/",
+      "instrucions": [
+        "Escolher contato", 
+        "Abrir contato", 
+        "Enviar mensagem"
+      ]
+    },
+    {
+      "url": "/mensagem/",
+      "instrucions": [
+        "Pesquisar", 
+        "Escolher aplicativo", 
+        "Instalar aplicativo"
+      ]
+    }
+  ],
+  [
+    {
+      "url": "/email/",
+      "instrucions": [
+        "Inserir dados",
+        "Escolher o endereço de e-mail",
+        "Criar senha",
+        "Número de telefone"
+      ]
+    },
+    {
+      "url": "/email",
+      "instrucions": [
+        "Iniciar redefinição de senha",
+        "Informar número de telefone",
+        "Código de verificação",
+        "Criar nova senha"
+      ]
+    },
+    {
+      "url": "/email/",
+      "instrucions": [
+        "Informar e-mail e senha", 
+        "Acessar conta"
+      ]
+    }
+  ],
+  [
+    {
+      "url": "/alimentacao/",
+      "instrucions": [
+        "Permitir localização",
+        "Forma de entrada",
+        "Entrar na conta"
+      ]
+    },
+    {
+      "url": "/alimentacao/",
+      "instrucions": [
+        "Buscar prato",
+        "Selecionar prato",
+        "Adicionar na sacola"
+      ]
+    },
+    {
+      "url": "/alimentacao/",
+      "instrucions": [
+        "Buscar prato", 
+        "Endereço de entrega",
+        "Forma de pagamento",
+        "Confirmar pedido"
+      ]
+    },
+    {
+      "url": "/alimentacao/",
+      "instrucions": [
+        "Pesquisar", 
+        "Escolher aplicativo", 
+        "Instalar aplicativo"
+      ]
+    }
+  ],
+  [
+    {
+      "url": "/transporte/",
+      "instrucions": [
+        "Buscar destino",
+        "Informar local de partida",
+        "Informar destino"
+      ]
+    },
+    {
+      "url": "/transporte/",
+      "instrucions": [
+        "Escolher veículo",
+        "Forma de pagamento"
+      ]
+    },
+    {
+      "url": "/transporte/",
+      "instrucions": [
+        "Confirmar veículo", 
+        "Pedir viagem"
+      ]
+    },
+    {
+      "url": "/transporte/",
+      "instrucions": [
+        "Pesquisar", 
+        "Escolher aplicativo", 
+        "Instalar aplicativo"
+      ]
+    }
+  ]
+]
