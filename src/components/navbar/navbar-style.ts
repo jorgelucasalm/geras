@@ -18,5 +18,6 @@ export const Content = styled.nav`
   }
   svg {
     margin: 0 2rem;
+    cursor: pointer;
   }
 `;

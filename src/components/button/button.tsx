@@ -1,14 +1,14 @@
 import { Content } from "./button-style";
 
-interface ButtonProps {
-  children: any;
-  category?: string;
-  onclick?: () => void;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  category?: "primary" | "secondary";
+  width?: string | number;
+  height?: string | number;
 }
 
-export function Button({ children, category, onclick }: ButtonProps) {
+export function Button({ children, category, ...rest }: ButtonProps) {
   return (
-    <Content category={category} onClick={onclick}>
+    <Content category={category} {...rest}>
       {children}
     </Content>
   );

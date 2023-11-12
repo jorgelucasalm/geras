@@ -1,25 +1,23 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  category?: "primary" | "secondary";
+export const AnchorLink = styled(Link)<{
+  category: "primary" | "secondary";
   width?: string | number;
   height?: string | number;
-}
-
-export const Content = styled.button<ButtonProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.4rem 1rem;
-  width: ${({ width }) => (width ? (typeof width === "number" ? `${width}px` : width) : "10rem")};
+}>`
+  width: max-content;
   height: ${({ height }) =>
     height ? (typeof height === "number" ? `${height}px` : height) : "2rem"};
   border-radius: 2rem;
-  font-size: 1rem;
   border: 1px solid var(--blue-800);
-  cursor: pointer;
-  opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  width: ${({ width }) => (width ? (typeof width === "number" ? `${width}px` : width) : "10rem")};
+  height: ${({ height }) =>
+    height ? (typeof height === "number" ? `${height}px` : height) : "2rem"};
   color: ${(props) => {
     switch (props.category) {
       case "secondary":
@@ -39,12 +37,20 @@ export const Content = styled.button<ButtonProps>`
   }};
 
   &:hover {
+    color: ${(props) => {
+      switch (props.category) {
+        case "secondary":
+          return "var(--blue-800)";
+        default:
+          return "var(--white)";
+      }
+    }};
     background: ${(props) => {
       switch (props.category) {
         case "secondary":
-          return !props.disabled ? "var(--blue-100)" : "var(--white)";
+          return "var(--blue-100)";
         default:
-          return !props.disabled ? "var(--blue-600)" : "var(--blue-800)";
+          return "var(--blue-600)";
       }
     }};
   }

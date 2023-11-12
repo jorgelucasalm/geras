@@ -1,8 +1,8 @@
-import { DatePicker as AntdDatePicker, DatePickerProps } from "antd";
+import { DatePicker as AntdDatePicker } from "antd";
+import { PickerDateProps } from "antd/es/date-picker/generatePicker";
+import { Dayjs } from "dayjs";
 import { AiOutlineCalendar } from "react-icons/ai";
 import styled from "styled-components";
-import { Dayjs } from "dayjs";
-import { PickerDateProps } from "antd/es/date-picker/generatePicker";
 
 interface Props extends PickerDateProps<Dayjs> {
   width: string | number;

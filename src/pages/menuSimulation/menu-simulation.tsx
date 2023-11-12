@@ -1,5 +1,5 @@
 import { Key, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { Header } from "@components/header/header";
 import { Navbar } from "@components/navbar/navbar";
@@ -26,6 +26,7 @@ import { FloatButton } from "@components/floatButton/float-button";
 export function Simulation() {
   const location = useLocation();
   const { title, subtitle, simulations, index } = location.state;
+  const navigate = useNavigate();
 
   function getIcon(icon: string) {
     switch (icon) {
@@ -62,7 +63,7 @@ export function Simulation() {
   }
 
   const [openModal, setOpenModal] = useState(false);
-  const [moduleId, setmMduleId] = useState<Key>(" ");
+  const [moduleId, setModuleId] = useState<Key>(" ");
 
   return (
     <>
@@ -73,12 +74,18 @@ export function Simulation() {
         index={index}
       />
       <Container>
-        <Navbar />
-        <Header title={title} subtitle={subtitle} />
+        <Navbar onClick={() => navigate("/home")} />
+        <Header category="main" title={title} subtitle={subtitle} />
 
         <section>
           {simulations.map(
-            (simulation: { id: Key; icon: string; label: string; color: string; index: string; }) => {
+            (simulation: {
+              id: Key;
+              icon: string;
+              label: string;
+              color: string;
+              index: string;
+            }) => {
               return (
                 <MenuButton
                   key={simulation.id}
@@ -87,7 +94,7 @@ export function Simulation() {
                   color={simulation.color}
                   onclick={() => {
                     setOpenModal(true);
-                    setmMduleId(simulation.id);
+                    setModuleId(simulation.id);
                   }}
                 />
               );

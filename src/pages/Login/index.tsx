@@ -1,6 +1,6 @@
-import { MainButton } from "@components";
+import { Button } from "@components";
 import LoginBackButton from "@components/LoginBackButton";
-import MainInput from "@components/MainInput";
+import MainInput from "@components/main-input/MainInput";
 import { useMutation } from "@tanstack/react-query";
 import api from "@utils/api";
 import toastUpdate from "@utils/toastUpdate";
@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 import isEmail from "validator/lib/isEmail";
+import { FiLock } from "react-icons/fi";
+import { LuMail } from "react-icons/lu";
 
 export default function LoginPage() {
   const [form] = Form.useForm();
@@ -86,7 +88,7 @@ export default function LoginPage() {
               },
             ]}
           >
-            <MainInput width={296} height={48} />
+            <MainInput width={296} height={48} prefix={<LuMail />} />
           </Form.Item>
 
           <Form.Item
@@ -106,7 +108,7 @@ export default function LoginPage() {
               },
             ]}
           >
-            <MainInput.Password width={296} height={48} />
+            <MainInput.Password width={296} height={48} prefix={<FiLock />} />
           </Form.Item>
 
           <Form.Item name="rememberPassword" valuePropName="checked" initialValue={false}>
@@ -115,18 +117,16 @@ export default function LoginPage() {
         </Form>
       </FormDiv>
 
-      <MainButton
-        buttonType="primary"
-        width={216}
-        height={48}
+      <Button
+        category="primary"
         style={{ margin: "0 auto", marginBottom: "1.5rem", marginTop: "3rem" }}
         onClick={() => form.submit()}
       >
         Entrar
-      </MainButton>
-      <MainButton buttonType="secondary" width={216} height={48} style={{ margin: "0 auto" }}>
-        Criar conta
-      </MainButton>
+      </Button>
+      <Button category="secondary" style={{ margin: "0 auto" }}>
+        Criar Conta
+      </Button>
     </Main>
   );
 }

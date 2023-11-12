@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     line-height: 1;
-    font-family: "Trebuchet MS";
+    font-family: "Trebuchet MS", sans-serif;
   }
   ol, ul {
     list-style: none;
@@ -56,6 +56,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --black-900: #000000;
     --black-600: #1F1F1F;
+    --black-400: #3C3C3C;
     --white: #FFFFFF;
 
     --blue-800: #08084A;
@@ -76,7 +77,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   * {
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Trebuchet MS', sans-serif !important;
     padding: 0;
     margin: 0;
     box-sizing: border-box;

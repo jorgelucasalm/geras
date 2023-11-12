@@ -2,7 +2,6 @@ import { Container, FloatButton } from "../new-contact-style";
 
 import { Header } from "@components/header/header";
 import { Navbar } from "@components/navbar/navbar";
-import { BottomBar } from "@components/bottombar/bottombar";
 import { Instruction } from "@components/instruction/instruction";
 import { Contact } from "../../components/contact/contact";
 
@@ -12,6 +11,8 @@ import Icon1 from "../../images/picture1.png";
 import Icon2 from "../../images/picture2.png";
 import Icon3 from "../../images/picture3.png";
 import Icon4 from "../../images/picture4.png";
+import { useNavigate } from "react-router-dom";
+import Footer from "@components/footer/footer";
 
 const contacts = [
   {
@@ -37,10 +38,12 @@ const contacts = [
 ];
 
 function StepOne() {
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <Navbar />
-      <Header line={true} title="Passo 1" subtitle="Lista de contatos recentes" />
+      <Navbar onClick={() => navigate("/mensagem/criar-contato")} />
+      <Header category="step" line={true} title="Passo 1" subtitle="Lista de contatos recentes" />
 
       <Instruction instruction="Acesse sua lista de contatos para iniciar uma nova conversa." />
       <section>
@@ -55,7 +58,7 @@ function StepOne() {
         </button>
       </FloatButton>
 
-      <BottomBar preview="/mensagem" next="/mensagem/criar-contato/passo-2" />
+      <Footer previousToUrl="/mensagem/criar-contato" nextToUrl="/mensagem/criar-contato/passo/2" />
     </Container>
   );
 }

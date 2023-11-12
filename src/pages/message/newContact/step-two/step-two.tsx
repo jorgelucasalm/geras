@@ -1,12 +1,13 @@
 import { Container, NewContactButton } from "../new-contact-style";
 
 import { Header } from "@components/header/header";
-import { Navbar } from "@components/navbar/navbar";
-import { BottomBar } from "@components/bottombar/bottombar";
 import { Instruction } from "@components/instruction/instruction";
-import { Contact } from "../../components/contact/contact";
+import { Navbar } from "@components/navbar/navbar";
 import { GoPerson } from "react-icons/go";
+import { Contact } from "../../components/contact/contact";
 
+import Footer from "@components/footer/footer";
+import { useNavigate } from "react-router-dom";
 import Icon1 from "../../images/picture1.png";
 import Icon2 from "../../images/picture2.png";
 import Icon3 from "../../images/picture3.png";
@@ -36,10 +37,17 @@ const contacts = [
 ];
 
 function StepTwo() {
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <Navbar />
-      <Header line={true} title="Passo 2" subtitle="Abrindo a lista de contatos salvos." />
+      <Navbar onClick={() => navigate("/mensagem/criar-contato/passo/1")} />
+      <Header
+        category="step"
+        line={true}
+        title="Passo 2"
+        subtitle="Abrindo a lista de contatos salvos."
+      />
 
       <Instruction instruction="Selecione o contato desejado ou crie um novo contato." />
 
@@ -56,7 +64,10 @@ function StepTwo() {
           return <Contact key={contact.id} icon={contact.icon} name={contact.name} />;
         })}
       </section>
-      <BottomBar preview="/mensagem/criar-contato/passo-1" next="/mensagem/criar-contato/passo-3" />
+      <Footer
+        previousToUrl="/mensagem/criar-contato/passo/1"
+        nextToUrl="/mensagem/criar-contato/passo/3"
+      />
     </Container>
   );
 }

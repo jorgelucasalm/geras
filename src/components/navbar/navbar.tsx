@@ -2,10 +2,14 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 import Logo from "../../assets/images/primary-logo.png";
 import { Content } from "./navbar-style";
 
-export function Navbar() {
+interface Props {
+  onClick?: React.MouseEventHandler<SVGElement>;
+}
+
+export function Navbar({ onClick }: Props) {
   return (
     <Content>
-      <BsArrowLeftCircle size={24} /> {/*como fazer funcionar? */}
+      <BsArrowLeftCircle onClick={onClick} size={24} />
       <img src={Logo} />
     </Content>
   );

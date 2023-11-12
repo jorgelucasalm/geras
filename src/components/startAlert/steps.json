@@ -1,43 +1,26 @@
 [
   [
     {
-      "url": "/mensagem/",
-      "instrucions": [
-        "Termos e condições", 
-        "Informar número", 
-        "Validar o número", 
-        "Foto e nome"
-      ]
+      "url": "/mensagem/criar-conta",
+      "instructions": ["Termos e condições", "Informar número", "Validar o número", "Foto e nome"]
     },
     {
-      "url": "/mensagem/criar-contato/passo-1",
-      "instrucions": [
-        "Lista de contatos", 
-        "Informar número", 
-        "Salvar"
-      ]
+      "url": "/mensagem/criar-contato",
+      "instructions": ["Lista de contatos", "Informar número", "Salvar"]
     },
     {
       "url": "/mensagem/",
-      "instrucions": [
-        "Escolher contato", 
-        "Abrir contato", 
-        "Enviar mensagem"
-      ]
+      "instructions": ["Escolher contato", "Abrir contato", "Enviar mensagem"]
     },
     {
       "url": "/mensagem/",
-      "instrucions": [
-        "Pesquisar", 
-        "Escolher aplicativo", 
-        "Instalar aplicativo"
-      ]
+      "instructions": ["Pesquisar", "Escolher aplicativo", "Instalar aplicativo"]
     }
   ],
   [
     {
       "url": "/email/",
-      "instrucions": [
+      "instructions": [
         "Inserir dados",
         "Escolher o endereço de e-mail",
         "Criar senha",
@@ -46,7 +29,7 @@
     },
     {
       "url": "/email",
-      "instrucions": [
+      "instructions": [
         "Iniciar redefinição de senha",
         "Informar número de telefone",
         "Código de verificação",
@@ -55,33 +38,22 @@
     },
     {
       "url": "/email/",
-      "instrucions": [
-        "Informar e-mail e senha", 
-        "Acessar conta"
-      ]
+      "instructions": ["Informar e-mail e senha", "Acessar conta"]
     }
   ],
   [
     {
       "url": "/alimentacao/",
-      "instrucions": [
-        "Permitir localização",
-        "Forma de entrada",
-        "Entrar na conta"
-      ]
+      "instructions": ["Permitir localização", "Forma de entrada", "Entrar na conta"]
     },
     {
       "url": "/alimentacao/",
-      "instrucions": [
+      "instructions": ["Buscar prato", "Selecionar prato", "Adicionar na sacola"]
+    },
+    {
+      "url": "/alimentacao/",
+      "instructions": [
         "Buscar prato",
-        "Selecionar prato",
-        "Adicionar na sacola"
-      ]
-    },
-    {
-      "url": "/alimentacao/",
-      "instrucions": [
-        "Buscar prato", 
         "Endereço de entrega",
         "Forma de pagamento",
         "Confirmar pedido"
@@ -89,43 +61,25 @@
     },
     {
       "url": "/alimentacao/",
-      "instrucions": [
-        "Pesquisar", 
-        "Escolher aplicativo", 
-        "Instalar aplicativo"
-      ]
+      "instructions": ["Pesquisar", "Escolher aplicativo", "Instalar aplicativo"]
     }
   ],
   [
     {
       "url": "/transporte/",
-      "instrucions": [
-        "Buscar destino",
-        "Informar local de partida",
-        "Informar destino"
-      ]
+      "instructions": ["Buscar destino", "Informar local de partida", "Informar destino"]
     },
     {
       "url": "/transporte/",
-      "instrucions": [
-        "Escolher veículo",
-        "Forma de pagamento"
-      ]
+      "instructions": ["Escolher veículo", "Forma de pagamento"]
     },
     {
       "url": "/transporte/",
-      "instrucions": [
-        "Confirmar veículo", 
-        "Pedir viagem"
-      ]
+      "instructions": ["Confirmar veículo", "Pedir viagem"]
     },
     {
       "url": "/transporte/",
-      "instrucions": [
-        "Pesquisar", 
-        "Escolher aplicativo", 
-        "Instalar aplicativo"
-      ]
+      "instructions": ["Pesquisar", "Escolher aplicativo", "Instalar aplicativo"]
     }
   ]
 ]

@@ -3,7 +3,7 @@ import { Card, Content } from "./start-alert-style";
 import { PiWarningOctagonBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { Key } from "react";
-import StepsData from "./steps.json"
+import StepsData from "./steps.json";
 
 interface StartAlertProps {
   isOpen: boolean;
@@ -25,9 +25,9 @@ export function StartAlert({ isOpen, closeModal, moduleId, index }: StartAlertPr
           <div>
             <Button>
               <Link
-                to={"/instrucao"}
+                to={steps[index][Number(moduleId) - 1].url}
                 state={{
-                  steps: steps[index][Number(moduleId) - 1].instrucions,
+                  steps: steps[index][Number(moduleId) - 1].instructions,
                   url: steps[index][Number(moduleId) - 1].url,
                   render: false,
                 }}
@@ -35,7 +35,7 @@ export function StartAlert({ isOpen, closeModal, moduleId, index }: StartAlertPr
                 Entendi
               </Link>
             </Button>
-            <Button category="secundary" onclick={closeModal}>
+            <Button category="secondary" onClick={closeModal}>
               Voltar
             </Button>
           </div>

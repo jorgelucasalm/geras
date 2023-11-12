@@ -1,15 +1,18 @@
 import { Container, Input, InputBox } from "../new-contact-style";
 
+import Footer from "@components/footer/footer";
 import { Header } from "@components/header/header";
-import { Navbar } from "@components/navbar/navbar";
-import { BottomBar } from "@components/bottombar/bottombar";
 import { Instruction } from "@components/instruction/instruction";
+import { Navbar } from "@components/navbar/navbar";
+import { useNavigate } from "react-router-dom";
 
 function StepThree() {
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <Navbar />
-      <Header line={true} title="Passo 3" subtitle="Adicionar o número" />
+      <Navbar onClick={() => navigate("/mensagem/criar-contato/passo/2")} />
+      <Header category="step" line={true} title="Passo 3" subtitle="Adicionar o número" />
 
       <Instruction instruction="Informe os dados do novo contato." />
       <section>
@@ -21,7 +24,10 @@ function StepThree() {
         </InputBox>
       </section>
 
-      <BottomBar preview="/mensagem/criar-contato/passo-2" next="/mensagem/criar-contato/passo-4" />
+      <Footer
+        previousToUrl="/mensagem/criar-contato/passo/2"
+        nextToUrl="/mensagem/criar-contato/passo/4"
+      />
     </Container>
   );
 }

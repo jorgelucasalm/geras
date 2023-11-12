@@ -2,17 +2,17 @@ import { Container, NewContactButton } from "../new-contact-style";
 
 import { Header } from "@components/header/header";
 import { Navbar } from "@components/navbar/navbar";
-import { BottomBar } from "@components/bottombar/bottombar";
-import { GoPerson } from "react-icons/go";
 import { Contact } from "@pages/message/components/contact/contact";
+import { GoPerson } from "react-icons/go";
 
+import { EndAlert } from "@components/endAlert/end-alert";
+import Footer from "@components/footer/footer";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon1 from "../../images/picture1.png";
 import Icon2 from "../../images/picture2.png";
 import Icon3 from "../../images/picture3.png";
 import Icon4 from "../../images/picture4.png";
-import { Button } from "@components/button/button";
-import { useState } from "react";
-import { EndAlert } from "@components/endAlert/end-alert";
 
 const contacts = [
   {
@@ -39,13 +39,19 @@ const contacts = [
 
 function StepFour() {
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
       <EndAlert isOpen={openModal} closeModal={() => setOpenModal(!openModal)} />
       <Container>
-        <Navbar />
-        <Header line={true} title="Parabéns" subtitle="Você adicionou mais um contato!" />
+        <Navbar onClick={() => navigate("/mensagem/criar-contato/passo/3")} />
+        <Header
+          category="step"
+          line={true}
+          title="Parabéns"
+          subtitle="Você adicionou mais um contato!"
+        />
 
         <NewContactButton>
           <span>
@@ -61,10 +67,10 @@ function StepFour() {
           })}
         </section>
 
-        <BottomBar
-          preview="/mensagem/criar-contato/passo-3"
-          next=""
-          onclick={() => {
+        <Footer
+          previousToUrl="/mensagem/criar-contato/passo/3"
+          nextToUrl=""
+          onClickNext={() => {
             setOpenModal(true);
           }}
         />
