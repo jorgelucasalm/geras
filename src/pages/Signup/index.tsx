@@ -193,6 +193,11 @@ const Title = styled.h1`
 `;
 
 const FormDiv = styled.div<{ $rememberPasswordChecked: boolean }>`
+  & .ant-row.ant-form-item-row {
+    margin: 0 auto;
+    width: max-content;
+  }
+
   & .ant-form-item-label {
     padding-bottom: 0.2rem;
   }
@@ -222,5 +227,13 @@ const FormDiv = styled.div<{ $rememberPasswordChecked: boolean }>`
 
   & .ant-input-affix-wrapper-status-error {
     border-color: #ff4d4f !important;
+  }
+
+  & .ant-picker {
+    border: 1px solid var(--blue-800) !important;
+  }
+
+  & .ant-picker-input > span {
+    color: var(--blue-800);
   }
 `;

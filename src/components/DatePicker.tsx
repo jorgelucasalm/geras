@@ -7,15 +7,16 @@ import styled from "styled-components";
 interface Props extends PickerDateProps<Dayjs> {
   width: string | number;
   height: string | number;
+  placeholder?: string;
 }
 
-export default function DatePicker({ width, height, ...rest }: Props) {
+export default function DatePicker({ width, height, placeholder, ...rest }: Props) {
   const DATE_FORMAT = "DD/MM/YYYY";
   return (
     <Input $width={width} $height={height}>
       <AntdDatePicker
         format={DATE_FORMAT}
-        placeholder={DATE_FORMAT.toLowerCase()}
+        placeholder={placeholder ? placeholder : DATE_FORMAT.toLowerCase()}
         suffixIcon={<AiOutlineCalendar />}
         allowClear={false}
         {...rest}
@@ -29,7 +30,7 @@ const Input = styled.div<{ $width: Props["width"]; $height: Props["height"] }>`
 
   & > div {
     border-radius: 10rem;
-    border: 1px solid var(--dark-blue) !important;
+    border: 1px solid var(--blue-800) !important;
 
     width: ${({ $width }) => (typeof $width === "number" ? `${$width}px` : $width)};
     height: ${({ $height }) => (typeof $height === "number" ? `${$height}px` : $height)};
