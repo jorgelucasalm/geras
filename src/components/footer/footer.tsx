@@ -1,8 +1,22 @@
-import { Footer as FooterStyle } from "./footer-style";
-import { PropsWithChildren } from "react";
+import Anchor from "@components/anchor/anchor";
+import { Container } from "./footer-style";
 
-interface Props extends PropsWithChildren {}
+interface Props {
+  previousToUrl: string;
+  nextToUrl: string;
+  onClickPrevious?: React.MouseEventHandler<HTMLAnchorElement>;
+  onClickNext?: React.MouseEventHandler<HTMLAnchorElement>;
+}
 
-export function Footer({ children }: Props) {
-  return <FooterStyle>{children}</FooterStyle>;
+export default function Footer({ previousToUrl, nextToUrl, onClickNext, onClickPrevious }: Props) {
+  return (
+    <Container>
+      <Anchor onClick={onClickPrevious} category="secondary" to={previousToUrl} width={136}>
+        Anterior
+      </Anchor>
+      <Anchor onClick={onClickNext} category="primary" to={nextToUrl} width={136}>
+        Próximo
+      </Anchor>
+    </Container>
+  );
 }

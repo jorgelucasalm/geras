@@ -1,3 +1,4 @@
 import LoginPage from "./Login";
+import MessagePage from "./message";
 
-export { LoginPage };
+export { LoginPage, MessagePage };

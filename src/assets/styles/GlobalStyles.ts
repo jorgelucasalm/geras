@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     line-height: 1;
-    font-family: "Trebuchet MS";
+    font-family: "Trebuchet MS", sans-serif;
   }
   ol, ul {
     list-style: none;
@@ -56,23 +56,28 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --black-900: #000000;
     --black-600: #1F1F1F;
+    --black-400: #3C3C3C;
     --white: #FFFFFF;
 
     --blue-800: #08084A;
     --blue-600: #00336f;
+    --blue-400: #478FE3;
     --blue-100: #EAF4FF;
 
+    --pink-600: #BF87E1;
     --pink-200: #F3E1FF;
+    --orange-800: #FFC581;
     --orange-600: #FFBF00;
     --orange-400: #FFC530;
     --orange-200: #FFE0BB;
-
     --green-500: #00CC08;
+    
+    --green-400: #A3F09C;
     --green-200: #C2F2BE;
   }
 
   * {
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Trebuchet MS', sans-serif !important;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -91,7 +96,7 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     color: var(--blue-600);
-    font-weight: 600;
+    font-weight: 400;
   }
 `;
 

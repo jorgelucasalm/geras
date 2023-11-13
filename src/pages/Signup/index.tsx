@@ -1,20 +1,19 @@
-import { MainButton } from "@components";
+import { Button } from "@components";
+import DatePicker from "@components/DatePicker";
 import LoginBackButton from "@components/LoginBackButton";
-import MainInput from "@components/MainInput";
+import MainInput from "@components/main-input/MainInput";
 import { useMutation } from "@tanstack/react-query";
 import api from "@utils/api";
 import toastUpdate from "@utils/toastUpdate";
 import { Form } from "antd";
+import { AxiosError } from "axios";
+import { useState } from "react";
+import { AiOutlineUser } from "react-icons/ai";
+import { FiLock } from "react-icons/fi";
+import { LuMail } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styled from "styled-components";
-import { LuMail } from "react-icons/lu";
-import { FiLock } from "react-icons/fi";
-import { AiOutlineUser } from "react-icons/ai";
-import DatePicker from "@components/DatePicker";
-import { useState } from "react";
-import { Dayjs } from "dayjs";
-import { AxiosError } from "axios";
-import { useNavigate } from "react-router-dom";
 
 export default function SignUpPage() {
   const [form] = Form.useForm();
@@ -31,8 +30,7 @@ export default function SignUpPage() {
   const loginMutation = useMutation({
     mutationKey: ["user-signup"],
     mutationFn: async ({ name, email, password }: UserType) => {
-      const response = await api.post("/v1/user/create", { name, email, birthage: date, password });
-      console.log(response);
+      await api.post("/v1/user/create", { name, email, birthage: date, password });
     },
     onMutate: () => {
       const toastId = toast.loading("Criando...");
@@ -164,18 +162,18 @@ export default function SignUpPage() {
         </Form>
       </FormDiv>
 
-      <MainButton
-        buttonType="primary"
+      <Button
+        category="primary"
         width={216}
         height={48}
         style={{ margin: "0 auto", marginBottom: "2.4rem" }}
         onClick={() => form.submit()}
       >
         Cadastrar
-      </MainButton>
-      <MainButton buttonType="secondary" width={216} height={48} style={{ margin: "0 auto" }}>
+      </Button>
+      <Button category="secondary" width={216} height={48} style={{ margin: "0 auto" }}>
         Já tenho conta
-      </MainButton>
+      </Button>
     </Main>
   );
 }

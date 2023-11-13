@@ -1,27 +1,22 @@
-import { BsArrowLeftCircle } from "react-icons/bs";
-import Logo from "../../assets/images/primary-logo.png";
-import { Button } from "../button/button";
+import Anchor from "@components/anchor/anchor";
+import { HeaderMenu } from "@components/header-menu/headerMenu";
 import { Header } from "../header/header";
 import { Container, Content, Instruction } from "./steps-style";
-import { Link, useLocation } from "react-router-dom";
 
-export function Step() {
-  const location = useLocation();
-  const { steps, url, render } = location.state;
+type Props = {
+  steps: string[];
+  url: string;
+} & ({ render: false } | { render: true; renderUrl: string });
 
-  console.log(steps);
-
+export function Step(props: Props) {
   return (
     <Container>
-      <nav>
-        <BsArrowLeftCircle size={24} /> {/*como fazer funcionar? */}
-        <img src={Logo} />
-      </nav>
+      <HeaderMenu backButtonUrl="/" />
 
-      <Header title="Vamos começar?" subtitle="Passos" />
+      <Header category="main" title="Vamos começar?" subtitle="Passos" />
 
       <section>
-        {steps.map((step: string, index: number) => {
+        {props.steps.map((step, index) => {
           return (
             <Instruction key={index}>
               <span>{index + 1}</span>
@@ -32,14 +27,14 @@ export function Step() {
       </section>
 
       <Content>
-        <Button>
-          <Link to={url}>Iniciar</Link>
-        </Button>
+        <Anchor category="primary" to={props.url}>
+          Iniciar
+        </Anchor>
 
-        {render && (
-          <Button category={"secundary"}>
-            <Link to={url}>Pular explicação</Link>
-          </Button>
+        {props.render && (
+          <Anchor category="secondary" to={props.renderUrl}>
+            Pular explicação
+          </Anchor>
         )}
       </Content>
     </Container>

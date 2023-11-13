@@ -1,0 +1,85 @@
+[
+  [
+    {
+      "url": "/mensagem/criar-conta",
+      "instructions": ["Termos e condições", "Informar número", "Validar o número", "Foto e nome"]
+    },
+    {
+      "url": "/mensagem/criar-contato",
+      "instructions": ["Lista de contatos", "Informar número", "Salvar"]
+    },
+    {
+      "url": "/mensagem/",
+      "instructions": ["Escolher contato", "Abrir contato", "Enviar mensagem"]
+    },
+    {
+      "url": "/mensagem/",
+      "instructions": ["Pesquisar", "Escolher aplicativo", "Instalar aplicativo"]
+    }
+  ],
+  [
+    {
+      "url": "/email/",
+      "instructions": [
+        "Inserir dados",
+        "Escolher o endereço de e-mail",
+        "Criar senha",
+        "Número de telefone"
+      ]
+    },
+    {
+      "url": "/email",
+      "instructions": [
+        "Iniciar redefinição de senha",
+        "Informar número de telefone",
+        "Código de verificação",
+        "Criar nova senha"
+      ]
+    },
+    {
+      "url": "/email/",
+      "instructions": ["Informar e-mail e senha", "Acessar conta"]
+    }
+  ],
+  [
+    {
+      "url": "/alimentacao/",
+      "instructions": ["Permitir localização", "Forma de entrada", "Entrar na conta"]
+    },
+    {
+      "url": "/alimentacao/",
+      "instructions": ["Buscar prato", "Selecionar prato", "Adicionar na sacola"]
+    },
+    {
+      "url": "/alimentacao/",
+      "instructions": [
+        "Buscar prato",
+        "Endereço de entrega",
+        "Forma de pagamento",
+        "Confirmar pedido"
+      ]
+    },
+    {
+      "url": "/alimentacao/",
+      "instructions": ["Pesquisar", "Escolher aplicativo", "Instalar aplicativo"]
+    }
+  ],
+  [
+    {
+      "url": "/transporte/",
+      "instructions": ["Buscar destino", "Informar local de partida", "Informar destino"]
+    },
+    {
+      "url": "/transporte/",
+      "instructions": ["Escolher veículo", "Forma de pagamento"]
+    },
+    {
+      "url": "/transporte/",
+      "instructions": ["Confirmar veículo", "Pedir viagem"]
+    },
+    {
+      "url": "/transporte/",
+      "instructions": ["Pesquisar", "Escolher aplicativo", "Instalar aplicativo"]
+    }
+  ]
+]
