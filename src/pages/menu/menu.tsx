@@ -26,7 +26,7 @@ export function Menu() {
           <img src={Logo} />
         </div>
       </nav>
-      <Header title="Vamos praticar?" subtitle="" />
+      <Header title="Vamos praticar?" subtitle="" category={"main"} />
 
       <section>
         <Link
