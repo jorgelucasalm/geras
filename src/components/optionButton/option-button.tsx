@@ -2,7 +2,7 @@ import { Content } from "./option-button-style";
 
 interface OptionButtonProps {
   children: string;
-  category?: string | undefined;
+  category?: string;
 }
 
 export function OptionButton({children, category}:OptionButtonProps) {

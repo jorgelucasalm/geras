@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface ContentProps {
-  category: string;
+  category?: string;
 }
 
 export const Content = styled.button<ContentProps>`
