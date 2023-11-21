@@ -6,8 +6,7 @@ import Instruction from "@pages/instruction";
 import { Menu } from "@pages/menu/menu";
 import { Simulation } from "@pages/menuSimulation/menu-simulation";
 import { Home } from "./pages/home/home";
-import { Step } from "./components/steps/steps";
-import Email from "@pages/Email";
+import { Settings } from "@pages/settings/settings";
 
 export const routes = () => {
   return (
@@ -19,11 +18,12 @@ export const routes = () => {
         <Route path="/entrar" element={<LoginPage />} />
         <Route path="/home" element={<Menu />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/configuracao" element={<Settings/>}/>
 
         <Route path="/email" element={<Simulation />} />
         <Route path="/alimentacao" element={<Simulation />} />
         <Route path="/transporte" element={<Simulation />} />
-        <Route path="/signup" element={<SignUpPage />} />
 
         <Route path="/mensagem" element={<Simulation />} />
 
