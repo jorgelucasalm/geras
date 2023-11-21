@@ -98,7 +98,7 @@ export function Menu() {
           </span>
 
           <span>
-            <Link to={"/"}>
+            <Link to={"/suporte"}>
               <GoQuestion size={28} />
             </Link>
           </span>

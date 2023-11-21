@@ -7,14 +7,14 @@ export function Settings() {
   return (
     <Container>
       <Navbar />
-      <Header category="main" title={"Configurações"} />
+      <Header  category="main" title={"Configurações"} subtitle={"Escolha uma das opções"} />
       <div>
-        <OptionButton>Meus dados</OptionButton>
-        <OptionButton>Minha senha</OptionButton>
-        <OptionButton>Fale conosco</OptionButton>
-        <OptionButton>Acompanhar progresso</OptionButton>
-        <OptionButton>Sair</OptionButton>
-        <OptionButton category="alert">Excluir minha conta</OptionButton>
+        <OptionButton to={""}>Meus dados</OptionButton>
+        <OptionButton to={""}>Minha senha</OptionButton>
+        <OptionButton to={"/suporte"}>Fale conosco</OptionButton>
+        <OptionButton to={""}>Acompanhar progresso</OptionButton>
+        <OptionButton to={""}>Sair</OptionButton>
+        <OptionButton to={""} category="alert">Excluir minha conta</OptionButton>
       </div>
     </Container>
   );
