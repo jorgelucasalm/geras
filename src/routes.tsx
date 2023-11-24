@@ -8,6 +8,7 @@ import { Simulation } from "@pages/menuSimulation/menu-simulation";
 import { Home } from "./pages/home/home";
 import { Step } from "./components/steps/steps";
 import Email from "@pages/Email";
+import Download from "@components/donwload-page/download-page";
 
 export const routes = () => {
   return (
@@ -26,6 +27,11 @@ export const routes = () => {
         <Route path="/signup" element={<SignUpPage />} />
 
         <Route path="/mensagem" element={<Simulation />} />
+
+        <Route path="/download/:app/*" element={<Download />}>
+          <Route path="passo/1" element={<Download.StepOne />} />
+          <Route path="passo/2" element={<Download.StepTwo />} />
+        </Route>
 
         <Route path="/mensagem/criar-conta/*" element={<MessagePage.CreateAccount />}>
           <Route path="passo/1" element={<MessagePage.CreateAccount.StepOne />} />
