@@ -11,6 +11,7 @@ import Email from "@pages/Email";
 import Download from "@pages/download-page/download-page";
 import { Settings } from "@pages/settings/settings";
 import { Support } from "@pages/support/support";
+import Profile from "@pages/profile";
 
 export const routes = () => {
   return (

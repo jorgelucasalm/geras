@@ -66,39 +66,29 @@ export const DivModalBody = styled.div`
   }
 `;
 
+export const IconStyle = styled.img`
+margin-top: 2rem;
+margin-bottom: 1rem;
+width: 6rem;
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    min-height: 4rem;
-
-    box-shadow: 0px 4px 4px 0px #00000019;
-    background: var(--blue-100);
-    width: 100%;
-    padding: 3rem 0 1rem;
-
-    div {
-      width: 20%;
-    }
-
-    img {
-      width: 10rem;
-    }
-  }
+  h1 {margin-top: 1rem;
+  margin-bottom: 0.5rem;}
 
   section {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 2rem;
     max-width: 24rem;
   }
 

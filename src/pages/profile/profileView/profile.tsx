@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { AiOutlineUser } from "react-icons/ai";
 import { Button } from "@components";
-import { Container } from "./profile-style";
+import { Container, IconStyle } from "./profile-style";
 import Footer from "@components/footer/footer";
 import { Input } from "@components/line-input/style";
 import { Navbar } from "@components/navbar/navbar";
 import { Div } from "./profile-style";
+import IconFemale1 from "@pages/message/images/picture2.png";
+import MainInput from "@components/main-input/MainInput";
 
 
 
@@ -13,16 +15,12 @@ import { Div } from "./profile-style";
 
 export default function ProfileView() {
   const navigate = useNavigate();
-  const [imageUrl] = useState<string>();
-
-
-
 
   return (
     <Container>
       <Navbar onClick={() => navigate("/configuration")} />
 
-      <img src={imageUrl} alt="avatar" style={{ width: "100%", borderRadius: "50%" }} />
+      <IconStyle src={IconFemale1} alt="avatar" />
 
 
       <h1 style={{ color: "var(--blue-800)" }}>Marcia</h1>
@@ -30,9 +28,28 @@ export default function ProfileView() {
 
 
       <section>
-        <Input type="text" placeholder="Nome Completo" disabled />
-        <Input type="text" placeholder="Data de nascimento" disabled />
-        <Input type="text" placeholder="Email" disabled />
+        <MainInput
+          width={296}
+          height={48}
+          type="text"
+          // prefix={<AiOutlineUser />}
+          placeholder="Nome completo"
+          disabled
+        />
+        <MainInput
+          width={296}
+          height={48}
+          // prefix={<Date/>}
+          placeholder="01/01/2001"
+          disabled
+        />
+        <MainInput
+          width={296}
+          height={48}
+          // prefix={<LuMail />}
+          placeholder="example@gmail.com"
+          disabled
+        />
 
       </section>
 
@@ -40,7 +57,7 @@ export default function ProfileView() {
         <Button
           category="primary"
           style={{ margin: "1.5rem auto", marginTop: 24 }}
-          onClick={() => navigate("/edit-profile/")}
+          onClick={() => navigate("/editar-perfil")}
         >
           Alterar dados
         </Button>
@@ -49,7 +66,7 @@ export default function ProfileView() {
 
       <Footer
         previousToUrl="/configuration"
-        nextToUrl="/edit-profile"
+        nextToUrl="/editar-perfil"
       />
     </Container>
 
