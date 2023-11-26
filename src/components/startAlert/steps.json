@@ -9,11 +9,11 @@
       "instructions": ["Lista de contatos", "Informar número", "Salvar"]
     },
     {
-      "url": "/mensagem/",
+      "url": "/mensagem/enviar-mensagem",
       "instructions": ["Escolher contato", "Abrir contato", "Enviar mensagem"]
     },
     {
-      "url": "/mensagem/",
+      "url": "/download/whatsapp",
       "instructions": ["Pesquisar", "Escolher aplicativo", "Instalar aplicativo"]
     }
   ],

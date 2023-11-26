@@ -8,7 +8,9 @@ import { Simulation } from "@pages/menuSimulation/menu-simulation";
 import { Home } from "./pages/home/home";
 import { Step } from "./components/steps/steps";
 import Email from "@pages/Email";
-import Download from "@components/donwload-page/download-page";
+import Download from "@pages/download-page/download-page";
+import { Settings } from "@pages/settings/settings";
+import { Support } from "@pages/support/support";
 
 export const routes = () => {
   return (
@@ -20,11 +22,13 @@ export const routes = () => {
         <Route path="/entrar" element={<LoginPage />} />
         <Route path="/home" element={<Menu />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/configuracao" element={<Settings/>}/>
+        <Route path="/suporte" element={<Support/>}/>
 
         <Route path="/email" element={<Simulation />} />
         <Route path="/alimentacao" element={<Simulation />} />
         <Route path="/transporte" element={<Simulation />} />
-        <Route path="/signup" element={<SignUpPage />} />
 
         <Route path="/mensagem" element={<Simulation />} />
 
@@ -45,6 +49,11 @@ export const routes = () => {
           <Route path="passo/2" element={<MessagePage.NewContact.StepTwo />} />
           <Route path="passo/3" element={<MessagePage.NewContact.StepThree />} />
           <Route path="passo/4" element={<MessagePage.NewContact.StepFour />} />
+        </Route>
+
+        <Route path="/mensagem/enviar-mensagem/*" element={<MessagePage.SendMessage />}>
+          <Route path="passo/1" element={<MessagePage.SendMessage.StepOne />} />
+          <Route path="passo/2" element={<MessagePage.SendMessage.StepTwo />} />
         </Route>
       </Routes>
     </BrowserRouter>

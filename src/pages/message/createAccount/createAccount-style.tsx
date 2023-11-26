@@ -5,7 +5,8 @@ export const Main = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  height: 100vh;
+  align-items: center;
 `;
 
 export const OutletDiv = styled.div`

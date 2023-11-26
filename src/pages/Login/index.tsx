@@ -6,7 +6,7 @@ import api from "@utils/api";
 import toastUpdate from "@utils/toastUpdate";
 import { Checkbox, Form } from "antd";
 import { AxiosError } from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 import isEmail from "validator/lib/isEmail";
@@ -125,7 +125,7 @@ export default function LoginPage() {
         Entrar
       </Button>
       <Button category="secondary" style={{ margin: "0 auto" }}>
-        Criar Conta
+        <Link to={"/cadastro"}>Criar Conta</Link>
       </Button>
     </Main>
   );

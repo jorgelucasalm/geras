@@ -2,68 +2,63 @@ import { Header } from "@components";
 import Footer from "@components/footer/footer";
 import { HeaderMenu } from "@components/header-menu/headerMenu";
 import { Step } from "@components/steps/steps";
-import { useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { Main, OutletDiv } from "./download-page-style";
-
+import styled from "styled-components";
 import StepOne from "./step-one";
 import StepTwo from "./step-two";
+import { useMemo, useState } from "react";
 
 const headerTexts: { title: string; subtitle: string }[] = [
-  { title: "Passo 1", subtitle: "Busque o nome do aplicativo" },
-  { title: "Passo 2", subtitle: "Instalação do aplicativo" },
+  { title: "Passo 1", subtitle: "Selecionando o contato desejado." },
+  { title: "Passo 2", subtitle: "Abrindo a conversa." },
 ];
 
-type FooterFuncType = {
+export type FooterFuncType = {
   onClickNext?: React.MouseEventHandler<HTMLAnchorElement>;
   onClickPrevious?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
-export type OutletCreateAccountMessageContextType = {
-  setFooterFunc: React.Dispatch<React.SetStateAction<FooterFuncType>>;
-};
-
-export default function Download() {
+export default function SendMessage() {
   const location = useLocation();
   const pathname = location.pathname.slice(1).split("/");
-  const [messageText, App, stepText, stepValueText] = pathname;
+  const [messageText, sendMessageText, stepText, stepValueText] = pathname;
   const [footerFunc, setFooterFunc] = useState<FooterFuncType>({
     onClickNext: undefined,
     onClickPrevious: undefined,
   });
-
-  console.log([messageText, App, stepText, stepValueText]);
+  const outletContext = useMemo(
+    () => ({
+      setFooterFunc,
+    }),
+    [],
+  );
 
   //Esses if's estão tratando o pathname da rota pra nao ocorrer conflito.
-  if (messageText !== "download") {
-    return <Navigate to="/download" />; //TODO Mudar isso pra rota do menu de mensagens
-  }
-
-  if (App !== "whatsapp" && App !== "ifood" && App !== "uber") {
-    return <Navigate to="/download" />; //TODO Mudar isso pra rota do menu de mensagens
+  if (messageText !== "mensagem" || sendMessageText !== "enviar-mensagem") {
+    return <Navigate to="/mensagem" />;
   }
 
   if (
     (stepText !== "passos" && stepText !== "passo") ||
     (stepText === "passo" && stepValueText === undefined)
   ) {
-    return <Navigate to={"/download/" + App + "/passos"} />; //TODO Mudar isso pra rota do menu de mensagens
+    return <Navigate to="/mensagem/enviar-mensagem/passos" />;
   }
 
   if (
     (stepValueText !== undefined && Number.isNaN(+stepValueText)) ||
     +stepValueText <= 0 ||
-    +stepValueText > 5
+    +stepValueText > 2
   ) {
-    return <Navigate to={"/download/" + App + "/passos"} />; //TODO Mudar isso pra rota do menu de mensagens
+    return <Navigate to="/mensagem/enviar-mensagem/passos" />;
   }
 
   if (stepValueText === undefined) {
     return (
       <>
         <Step
-          steps={["Pesquisar", "Escolher aplicativo", "Instalar aplicativo"]}
-          url={"/download/" + App + "/passo/1"}
+          steps={["Escolher contato", "Abrir conversa", "Enviar mensagem"]}
+          url="/mensagem/enviar-mensagem/passo/1"
           render={false}
         />
       </>
@@ -77,8 +72,8 @@ export default function Download() {
       <HeaderMenu
         backButtonUrl={
           stepNumber > 1
-            ? `/download/${App}/passo/${stepNumber - 1}`
-            : "/download/" + App + "/passos"
+            ? `/mensagem/enviar-mensagem/passo/${stepNumber - 1}`
+            : "/mensagem/enviar-mensagem/passos"
         }
         orangeBar
       />
@@ -89,20 +84,16 @@ export default function Download() {
           title={headerTexts[stepNumber - 1].title}
           subtitle={headerTexts[stepNumber - 1].subtitle}
         />
-        <Outlet context={{ setFooterFunc }} />
+        <Outlet context={outletContext} />
       </OutletDiv>
 
       <Footer
         previousToUrl={
           stepNumber > 1
-            ? `/download/${App}/passo/${stepNumber === 2 ? stepNumber - 2 : stepNumber - 1}`
-            : "/download/" + App + "/passos"
+            ? `/mensagem/enviar-mensagem/passo/${stepNumber - 1}`
+            : "/mensagem/enviar-mensagem/passos"
         }
-        nextToUrl={
-          stepNumber < 2
-            ? `/download/${App}/passo/${stepNumber === 2 ? stepNumber + 2 : stepNumber + 1}`
-            : ""
-        } //TODO chamar o modal de concluído
+        nextToUrl={stepNumber < 2 ? `/mensagem/enviar-mensagem/passo/${stepNumber + 1}` : ""} //TODO chamar o modal de concluído
         onClickNext={footerFunc.onClickNext}
         onClickPrevious={footerFunc.onClickPrevious}
       />
@@ -110,5 +101,18 @@ export default function Download() {
   );
 }
 
-Download.StepOne = StepOne;
-Download.StepTwo = StepTwo;
+export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  align-items: center;
+`;
+
+export const OutletDiv = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+SendMessage.StepOne = StepOne;
+SendMessage.StepTwo = StepTwo;

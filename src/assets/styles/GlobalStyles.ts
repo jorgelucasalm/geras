@@ -74,6 +74,9 @@ const GlobalStyle = createGlobalStyle`
     
     --green-400: #A3F09C;
     --green-200: #C2F2BE;
+
+    --red-500: #af0000;
+    --red-100: #FFD1D1;
   }
 
   * {

@@ -6,7 +6,7 @@ interface Props extends React.HTMLAttributes<HTMLParagraphElement> {
 
 export default function TextCard({ width, children, ...rest }: Props) {
   return (
-    <P width={width} {...rest}>
+    <P width={width} {...rest} data-type="APP">
       {children}
     </P>
   );
