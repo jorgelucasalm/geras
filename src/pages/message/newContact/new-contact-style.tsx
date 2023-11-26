@@ -8,13 +8,24 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: auto;
-  margin-bottom: 9rem;
+  height: 100vh;
 
   section {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    max-height: 350px;
+    overflow-y: auto;
+  }
+
+  footer {
+    margin-top: auto;
+  }
+
+  > p {
+    align-self: baseline;
+    padding-left: 34px;
+    margin-bottom: 12px;
   }
 `;
 
@@ -34,12 +45,12 @@ export const FloatButton = styled.div`
     border: none;
     border-radius: 0.5rem;
     background: var(--blue-100);
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
-    &:hover{
+    &:hover {
       background-color: var(--blue-600);
       color: var(--white);
-      transition: all .5s ease-in-out;
+      transition: all 0.5s ease-in-out;
     }
   }
 `;
@@ -92,7 +103,7 @@ export const Input = styled.input<InputProps>`
   outline: none;
   font-size: 1rem;
   width: ${(props) => {
-    return props.width === "small" ? "25%" : "100%"
+    return props.width === "small" ? "25%" : "100%";
   }};
   max-width: 18.5rem;
 `;

@@ -35,6 +35,11 @@ const contacts = [
     icon: Icon4,
     name: "Marlena",
   },
+  {
+    id: 4,
+    icon: Icon4,
+    name: "Marlena",
+  },
 ];
 
 function StepOne() {

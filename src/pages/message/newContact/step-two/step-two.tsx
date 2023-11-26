@@ -34,6 +34,21 @@ const contacts = [
     icon: Icon4,
     name: "Marlena",
   },
+  {
+    id: 4,
+    icon: Icon4,
+    name: "Marlena",
+  },
+  {
+    id: 4,
+    icon: Icon4,
+    name: "Marlena",
+  },
+  {
+    id: 4,
+    icon: Icon4,
+    name: "Marlena",
+  },
 ];
 
 function StepTwo() {
@@ -58,8 +73,8 @@ function StepTwo() {
         <p>Novo contato</p>
       </NewContactButton>
 
+      <p>Contatos salvos</p>
       <section>
-        <p>Contatos salvos</p>
         {contacts.map((contact) => {
           return <Contact key={contact.id} icon={contact.icon} name={contact.name} />;
         })}
