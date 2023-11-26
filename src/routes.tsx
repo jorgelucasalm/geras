@@ -8,7 +8,7 @@ import { Simulation } from "@pages/menuSimulation/menu-simulation";
 import { Home } from "./pages/home/home";
 import { Step } from "./components/steps/steps";
 import Email from "@pages/Email";
-import Download from "@components/donwload-page/download-page";
+import Download from "@pages/download-page/download-page";
 
 export const routes = () => {
   return (

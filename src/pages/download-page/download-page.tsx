@@ -2,7 +2,7 @@ import { Header } from "@components";
 import Footer from "@components/footer/footer";
 import { HeaderMenu } from "@components/header-menu/headerMenu";
 import { Step } from "@components/steps/steps";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { Main, OutletDiv } from "./download-page-style";
 
@@ -19,28 +19,27 @@ type FooterFuncType = {
   onClickPrevious?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
-export type OutletCreateAccountMessageContextType = {
+export type OutletContextType = {
   setFooterFunc: React.Dispatch<React.SetStateAction<FooterFuncType>>;
 };
 
 export default function Download() {
   const location = useLocation();
   const pathname = location.pathname.slice(1).split("/");
-  const [messageText, App, stepText, stepValueText] = pathname;
+  const [downloadText, App, stepText, stepValueText] = pathname;
   const [footerFunc, setFooterFunc] = useState<FooterFuncType>({
     onClickNext: undefined,
     onClickPrevious: undefined,
   });
-
-  console.log([messageText, App, stepText, stepValueText]);
+  const outletContext = useMemo(() => ({ setFooterFunc }), []);
 
   //Esses if's estão tratando o pathname da rota pra nao ocorrer conflito.
-  if (messageText !== "download") {
-    return <Navigate to="/download" />; //TODO Mudar isso pra rota do menu de mensagens
+  if (downloadText !== "download") {
+    return <Navigate to="/home" />; //TODO Mudar isso pra rota do menu de mensagens
   }
 
   if (App !== "whatsapp" && App !== "ifood" && App !== "uber") {
-    return <Navigate to="/download" />; //TODO Mudar isso pra rota do menu de mensagens
+    return <Navigate to="/home" />; //TODO Mudar isso pra rota do menu de mensagens
   }
 
   if (
@@ -89,20 +88,16 @@ export default function Download() {
           title={headerTexts[stepNumber - 1].title}
           subtitle={headerTexts[stepNumber - 1].subtitle}
         />
-        <Outlet context={{ setFooterFunc }} />
+        <Outlet context={outletContext} />
       </OutletDiv>
 
       <Footer
         previousToUrl={
           stepNumber > 1
-            ? `/download/${App}/passo/${stepNumber === 2 ? stepNumber - 2 : stepNumber - 1}`
+            ? `/download/${App}/passo/${stepNumber - 1}`
             : "/download/" + App + "/passos"
         }
-        nextToUrl={
-          stepNumber < 2
-            ? `/download/${App}/passo/${stepNumber === 2 ? stepNumber + 2 : stepNumber + 1}`
-            : ""
-        } //TODO chamar o modal de concluído
+        nextToUrl={stepNumber < 2 ? `/download/${App}/passo/${stepNumber + 1}` : ""} //TODO chamar o modal de concluído
         onClickNext={footerFunc.onClickNext}
         onClickPrevious={footerFunc.onClickPrevious}
       />

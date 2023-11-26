@@ -1,16 +1,23 @@
-import { Button } from "@components";
-import TextCard from "@components/text-card/textCard";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Div } from "./style";
-import SearchInput from "@components/search-input/search-input";
-import { CiSearch } from "react-icons/ci";
 import { MainSelect } from "@components/select/select";
+import TextCard from "@components/text-card/textCard";
+import { useEffect } from "react";
+import { CiSearch } from "react-icons/ci";
+import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
+import { OutletContextType } from "../download-page";
+import { Div } from "./style";
 
 export default function StepOne() {
+  const outletContext = useOutletContext() as OutletContextType;
   const location = useLocation();
   const pathname = location.pathname.slice(1).split("/");
   const [messageText, App, stepText, stepValueText] = pathname;
   const navigate = useNavigate();
+
+  useEffect(() => {
+    outletContext.setFooterFunc({
+      onClickNext: () => {},
+    });
+  }, [outletContext]);
 
   return (
     <Div>
