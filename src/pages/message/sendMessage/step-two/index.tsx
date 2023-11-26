@@ -10,6 +10,7 @@ import { UserContactWithIcon } from "../step-one";
 import { ContactHeader } from "./components/contactHeader";
 import { UserTextCard } from "./components/userTextCard";
 import { Div, DivModalBody } from "./style";
+import { EndAlert } from "@components/endAlert/end-alert";
 
 type OutletContextType = {
   setFooterFunc: React.Dispatch<React.SetStateAction<FooterFuncType>>;
@@ -89,27 +90,8 @@ export default function StepTwo() {
           onPressEnter={() => sendMessage()}
         />
       </Div>
-      <ConfirmationModal
-        headerTitle="Parabéns"
-        headerSubTitle="Você enviou mensagens."
-        open={openModal}
-        onCancel={() => setOpenModal(false)}
-      >
-        <DivModalBody>
-          <p style={{ marginTop: 24, marginBottom: 16 }}>Simulação concluída!</p>
-          <p>Vá para o próximo tópico da seção mensagem!</p>
 
-          <Anchor
-            to="/home"
-            category="primary"
-            width={216}
-            height={48}
-            style={{ margin: "0 auto", marginTop: 40, marginBottom: 24 }}
-          >
-            Finalizar
-          </Anchor>
-        </DivModalBody>
-      </ConfirmationModal>
+      <EndAlert isOpen={openModal} closeModal={() => setOpenModal(false)} />
     </>
   );
 }
