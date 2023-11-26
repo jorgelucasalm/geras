@@ -4,7 +4,7 @@ export const Div = styled.div`
   margin: 0 2rem;
 
   > p {
-    margin-top: 11.375rem;
+    margin-top: 8rem;
   }
 
   > button {

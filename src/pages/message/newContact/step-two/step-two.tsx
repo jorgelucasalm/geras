@@ -34,21 +34,6 @@ const contacts = [
     icon: Icon4,
     name: "Marlena",
   },
-  {
-    id: 4,
-    icon: Icon4,
-    name: "Marlena",
-  },
-  {
-    id: 4,
-    icon: Icon4,
-    name: "Marlena",
-  },
-  {
-    id: 4,
-    icon: Icon4,
-    name: "Marlena",
-  },
 ];
 
 function StepTwo() {
@@ -66,7 +51,7 @@ function StepTwo() {
 
       <Instruction instruction="Selecione o contato desejado ou crie um novo contato." />
 
-      <NewContactButton>
+      <NewContactButton onClick={() => navigate("/mensagem/criar-contato/passo/3")}>
         <span>
           <GoPerson size={24} />
         </span>

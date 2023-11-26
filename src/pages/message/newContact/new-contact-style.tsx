@@ -14,7 +14,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-height: 350px;
+    max-height: 21.875rem;
     overflow-y: auto;
   }
 
@@ -24,8 +24,8 @@ export const Container = styled.div`
 
   > p {
     align-self: baseline;
-    padding-left: 34px;
-    margin-bottom: 12px;
+    padding-left: 2.125rem;
+    margin-bottom: 0.75rem;
   }
 `;
 
