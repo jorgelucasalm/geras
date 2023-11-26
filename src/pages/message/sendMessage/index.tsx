@@ -2,11 +2,11 @@ import { Header } from "@components";
 import Footer from "@components/footer/footer";
 import { HeaderMenu } from "@components/header-menu/headerMenu";
 import { Step } from "@components/steps/steps";
+import { useMemo, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import styled from "styled-components";
 import StepOne from "./step-one";
 import StepTwo from "./step-two";
-import { useMemo, useState } from "react";
+import { Main, OutletDiv } from "./style";
 
 const headerTexts: { title: string; subtitle: string }[] = [
   { title: "Passo 1", subtitle: "Selecionando o contato desejado." },
@@ -100,19 +100,6 @@ export default function SendMessage() {
     </Main>
   );
 }
-
-export const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  align-items: center;
-`;
-
-export const OutletDiv = styled.div`
-  width: 100%;
-  height: 100%;
-`;
 
 SendMessage.StepOne = StepOne;
 SendMessage.StepTwo = StepTwo;
