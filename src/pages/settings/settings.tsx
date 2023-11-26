@@ -7,9 +7,9 @@ export function Settings() {
   return (
     <Container>
       <Navbar />
-      <Header  category="main" title={"Configurações"} subtitle={"Escolha uma das opções"} />
+      <Header category="main" title={"Configurações"} subtitle={"Escolha uma das opções"} />
       <div>
-        <OptionButton to={""}>Meus dados</OptionButton>
+        <OptionButton to={"/perfil"}>Meus dados</OptionButton>
         <OptionButton to={""}>Minha senha</OptionButton>
         <OptionButton to={"/suporte"}>Fale conosco</OptionButton>
         <OptionButton to={""}>Acompanhar progresso</OptionButton>

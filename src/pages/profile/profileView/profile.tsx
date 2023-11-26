@@ -18,7 +18,7 @@ export default function ProfileView() {
 
   return (
     <Container>
-      <Navbar onClick={() => navigate("/configuration")} />
+      <Navbar onClick={() => navigate("/configuracao")} />
 
       <IconStyle src={IconFemale1} alt="avatar" />
 
@@ -65,7 +65,7 @@ export default function ProfileView() {
 
 
       <Footer
-        previousToUrl="/configuration"
+        previousToUrl="/configuracao"
         nextToUrl="/editar-perfil"
       />
     </Container>
