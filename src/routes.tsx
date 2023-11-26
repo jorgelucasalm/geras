@@ -23,13 +23,12 @@ export const routes = () => {
         <Route path="/home" element={<Menu />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/configuracao" element={<Settings/>}/>
-        <Route path="/suporte" element={<Support/>}/>
+        <Route path="/configuracao" element={<Settings />} />
+        <Route path="/suporte" element={<Support />} />
 
         <Route path="/email" element={<Simulation />} />
         <Route path="/alimentacao" element={<Simulation />} />
         <Route path="/transporte" element={<Simulation />} />
-
         <Route path="/mensagem" element={<Simulation />} />
 
         <Route path="/download/:app/*" element={<Download />}>
