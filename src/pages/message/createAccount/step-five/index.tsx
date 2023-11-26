@@ -2,13 +2,13 @@ import { Anchor, Button } from "@components";
 import ConfirmationModal from "@components/confirmation-modal";
 import LineInput from "@components/line-input";
 import TextCard from "@components/text-card/textCard";
-import { Upload as AntdUpload, message, Form } from "antd";
+import { Form, message } from "antd";
 import type { UploadChangeParam } from "antd/es/upload";
 import type { RcFile, UploadFile, UploadProps } from "antd/es/upload/interface";
 import { useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { PiCameraPlus } from "react-icons/pi";
-import styled from "styled-components";
+import { DivButton, DivModalBody, Main, Upload } from "./style";
 
 const getBase64 = (img: RcFile, callback: (url: string) => void) => {
   const reader = new FileReader();
@@ -116,68 +116,3 @@ export default function StepFive() {
     </Main>
   );
 }
-
-const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 2rem;
-`;
-
-const DivButton = styled.div`
-  height: 28px;
-
-  > svg {
-    width: 28px;
-    height: 28px;
-    color: var(--blue-600);
-  }
-
-  > .loading-icon {
-    -webkit-animation: spin 1s linear infinite;
-    -moz-animation: spin 1s linear infinite;
-    animation: spin 1s linear infinite;
-  }
-
-  @-moz-keyframes spin {
-    100% {
-      -moz-transform: rotate(360deg);
-    }
-  }
-  @-webkit-keyframes spin {
-    100% {
-      -webkit-transform: rotate(360deg);
-    }
-  }
-  @keyframes spin {
-    100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
-  }
-`;
-
-const Upload = styled(AntdUpload)`
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-
-  .ant-upload {
-    background-color: var(--blue-100) !important;
-    border: none !important;
-    border-radius: 50%;
-  }
-`;
-
-const DivModalBody = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  > p {
-    color: black;
-    font-size: 18px;
-    font-weight: 400;
-    text-align: center;
-    line-height: 16px;
-  }
-`;

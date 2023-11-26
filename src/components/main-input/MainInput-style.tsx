@@ -2,11 +2,13 @@ import { InputProps } from "antd";
 import styled from "styled-components";
 
 interface Props extends InputProps {
-  width: string | number;
-  height: string | number;
+  $width: string | number;
+  $height: string | number;
+  $iconWidth?: string | number;
+  $iconHeight?: string | number;
 }
 
-export const MainWithPrefix = styled.div<{ $width: Props["width"]; $height: Props["height"] }>`
+export const MainWithPrefix = styled.div<Props>`
   width: max-content;
 
   > span {
@@ -33,8 +35,18 @@ export const MainWithPrefix = styled.div<{ $width: Props["width"]; $height: Prop
 
   .ant-input-prefix > svg,
   .ant-input-suffix > svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: ${({ $iconWidth }) =>
+      $iconWidth !== undefined
+        ? typeof $iconWidth === "number"
+          ? `${$iconWidth}px`
+          : $iconWidth
+        : "1.5rem"};
+    height: ${({ $iconHeight }) =>
+      $iconHeight !== undefined
+        ? typeof $iconHeight === "number"
+          ? `${$iconHeight}px`
+          : $iconHeight
+        : "1.5rem"};
     color: var(--blue-800);
   }
 
