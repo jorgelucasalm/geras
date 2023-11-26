@@ -8,14 +8,15 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: auto;
-  margin-bottom: 9rem;
+  height: 100vh;
 
   section {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-  }
+    margin-bottom: 2rem;
+    height: 100%;
+  } 
 `;
 
 export const FloatButton = styled.div`
