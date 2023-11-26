@@ -35,7 +35,7 @@
       "icon": "GoMention",
       "label": "Criar conta",
       "color": "pink",
-      "url": "/"
+      "url": "/email"
     },
     {
       "id": "2",

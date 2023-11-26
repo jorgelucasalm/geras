@@ -7,7 +7,7 @@ export default function Instruction() {
         steps={["Aprenda a criar um e-mail", "Entrar no GERAS"]}
         url=""
         render
-        renderUrl="/home"
+        renderUrl="/entrar"
       />
     </>
   );

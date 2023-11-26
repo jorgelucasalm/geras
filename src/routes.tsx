@@ -21,8 +21,6 @@ export const routes = () => {
         <Route path="/cadastro" element={<SignUpPage />} />
         <Route path="/entrar" element={<LoginPage />} />
         <Route path="/home" element={<Menu />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/configuracao" element={<Settings />} />
         <Route path="/suporte" element={<Support />} />
 
