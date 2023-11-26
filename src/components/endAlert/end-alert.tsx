@@ -17,7 +17,7 @@ export function EndAlert({ isOpen, closeModal }: EndAlertProps) {
           <PiConfettiBold size={32} />
           <p>Vá para a próxima seção!</p>
           <div>
-            <Button onclick={closeModal}>
+            <Button onClick={closeModal}>
               <Link to={"/home"}>Tela Inicial</Link>
             </Button>
           </div>

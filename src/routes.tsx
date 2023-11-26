@@ -6,6 +6,9 @@ import Instruction from "@pages/instruction";
 import { Menu } from "@pages/menu/menu";
 import { Simulation } from "@pages/menuSimulation/menu-simulation";
 import { Home } from "./pages/home/home";
+import { Step } from "./components/steps/steps";
+import Email from "@pages/Email";
+import Download from "@pages/download-page/download-page";
 import { Settings } from "@pages/settings/settings";
 import { Support } from "@pages/support/support";
 
@@ -28,6 +31,11 @@ export const routes = () => {
         <Route path="/transporte" element={<Simulation />} />
 
         <Route path="/mensagem" element={<Simulation />} />
+
+        <Route path="/download/:app/*" element={<Download />}>
+          <Route path="passo/1" element={<Download.StepOne />} />
+          <Route path="passo/2" element={<Download.StepTwo />} />
+        </Route>
 
         <Route path="/mensagem/criar-conta/*" element={<MessagePage.CreateAccount />}>
           <Route path="passo/1" element={<MessagePage.CreateAccount.StepOne />} />

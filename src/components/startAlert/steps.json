@@ -13,7 +13,7 @@
       "instructions": ["Escolher contato", "Abrir contato", "Enviar mensagem"]
     },
     {
-      "url": "/mensagem/",
+      "url": "/download/whatsapp",
       "instructions": ["Pesquisar", "Escolher aplicativo", "Instalar aplicativo"]
     }
   ],

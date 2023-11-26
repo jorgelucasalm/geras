@@ -8,4 +8,5 @@ export const Container = styled.footer`
   min-height: 5.625rem;
   width: 100%;
   box-shadow: 0px -4px 4px 0px #00000019;
+  width: 100%;
 `;
