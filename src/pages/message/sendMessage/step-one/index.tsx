@@ -118,7 +118,7 @@ export default function StepOne() {
         <p>Novo contato</p>
       </NewContactButton>
 
-      <p style={{ marginBottom: 8 }}>Contatos salvos</p>
+      <p style={{ marginBottom: 8, marginRight: "auto" }}>Contatos salvos</p>
       <Section>
         {contactsQuery.data?.map((contact) => {
           return (
