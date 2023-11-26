@@ -92,7 +92,14 @@ export function Menu() {
           </span>
 
           <span>
-            <Link to={"/"}>
+            <Link to={"/perfil"}
+              state={{
+                simulations: simulations[0],
+                index: 0,
+                title: "Configurações",
+                subtitle: "Navegue até as configurações do seu perfil.",
+              }}
+            >
               <PiGearLight size={28} />
             </Link>
           </span>
