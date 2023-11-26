@@ -52,7 +52,7 @@ function StepOne() {
         })}
       </section>
 
-      <FloatButton>
+      <FloatButton onClick={() => navigate("/mensagem/criar-contato/passo/2")}>
         <button>
           <PiChatTextLight size={24} />
         </button>

@@ -4,19 +4,14 @@ import { HeaderMenu } from "@components/header-menu/headerMenu";
 import { Step } from "@components/steps/steps";
 import { useMemo, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { Main, OutletDiv } from "./createAccount-style";
+import { Main, OutletDiv } from "./download-page-style";
 
-import StepFour from "./step-four";
 import StepOne from "./step-one";
 import StepTwo from "./step-two";
-import StepFive from "./step-five";
 
 const headerTexts: { title: string; subtitle: string }[] = [
-  { title: "Passo 1", subtitle: "Concordar com os termos." },
-  { title: "Passo 2", subtitle: "Adicionar o número." },
-  { title: "Passo 3", subtitle: "Escolha o seu endereço de e-mail." },
-  { title: "Passo 4", subtitle: "Validação do número." },
-  { title: "Passo 5", subtitle: "Finalizando a criação da conta." },
+  { title: "Passo 1", subtitle: "Busque o nome do aplicativo" },
+  { title: "Passo 2", subtitle: "Instalação do aplicativo" },
 ];
 
 type FooterFuncType = {
@@ -28,10 +23,10 @@ export type OutletContextType = {
   setFooterFunc: React.Dispatch<React.SetStateAction<FooterFuncType>>;
 };
 
-export default function CreateAccount() {
+export default function Download() {
   const location = useLocation();
   const pathname = location.pathname.slice(1).split("/");
-  const [messageText, createAccountText, stepText, stepValueText] = pathname;
+  const [downloadText, App, stepText, stepValueText] = pathname;
   const [footerFunc, setFooterFunc] = useState<FooterFuncType>({
     onClickNext: undefined,
     onClickPrevious: undefined,
@@ -39,15 +34,19 @@ export default function CreateAccount() {
   const outletContext = useMemo(() => ({ setFooterFunc }), []);
 
   //Esses if's estão tratando o pathname da rota pra nao ocorrer conflito.
-  if (messageText !== "mensagem" || createAccountText !== "criar-conta") {
-    return <Navigate to="/mensagem" />; //TODO Mudar isso pra rota do menu de mensagens
+  if (downloadText !== "download") {
+    return <Navigate to="/home" />; //TODO Mudar isso pra rota do menu de mensagens
+  }
+
+  if (App !== "whatsapp" && App !== "ifood" && App !== "uber") {
+    return <Navigate to="/home" />; //TODO Mudar isso pra rota do menu de mensagens
   }
 
   if (
     (stepText !== "passos" && stepText !== "passo") ||
     (stepText === "passo" && stepValueText === undefined)
   ) {
-    return <Navigate to="/mensagem/criar-conta/passos" />; //TODO Mudar isso pra rota do menu de mensagens
+    return <Navigate to={"/download/" + App + "/passos"} />; //TODO Mudar isso pra rota do menu de mensagens
   }
 
   if (
@@ -55,15 +54,15 @@ export default function CreateAccount() {
     +stepValueText <= 0 ||
     +stepValueText > 5
   ) {
-    return <Navigate to="/mensagem/criar-conta/passos" />; //TODO Mudar isso pra rota do menu de mensagens
+    return <Navigate to={"/download/" + App + "/passos"} />; //TODO Mudar isso pra rota do menu de mensagens
   }
 
   if (stepValueText === undefined) {
     return (
       <>
         <Step
-          steps={["Termos e condições", "Informar número", "Validar o número", "Foto e nome"]}
-          url="/mensagem/criar-conta/passo/1"
+          steps={["Pesquisar", "Escolher aplicativo", "Instalar aplicativo"]}
+          url={"/download/" + App + "/passo/1"}
           render={false}
         />
       </>
@@ -77,8 +76,8 @@ export default function CreateAccount() {
       <HeaderMenu
         backButtonUrl={
           stepNumber > 1
-            ? `/mensagem/criar-conta/passo/${stepNumber - 1}`
-            : "/mensagem/criar-conta/passos"
+            ? `/download/${App}/passo/${stepNumber - 1}`
+            : "/download/" + App + "/passos"
         }
         orangeBar
       />
@@ -95,14 +94,10 @@ export default function CreateAccount() {
       <Footer
         previousToUrl={
           stepNumber > 1
-            ? `/mensagem/criar-conta/passo/${stepNumber === 4 ? stepNumber - 2 : stepNumber - 1}`
-            : "/mensagem/criar-conta/passos"
+            ? `/download/${App}/passo/${stepNumber - 1}`
+            : "/download/" + App + "/passos"
         }
-        nextToUrl={
-          stepNumber < 5
-            ? `/mensagem/criar-conta/passo/${stepNumber === 2 ? stepNumber + 2 : stepNumber + 1}`
-            : ""
-        } //TODO chamar o modal de concluído
+        nextToUrl={stepNumber < 2 ? `/download/${App}/passo/${stepNumber + 1}` : ""} //TODO chamar o modal de concluído
         onClickNext={footerFunc.onClickNext}
         onClickPrevious={footerFunc.onClickPrevious}
       />
@@ -110,7 +105,5 @@ export default function CreateAccount() {
   );
 }
 
-CreateAccount.StepOne = StepOne;
-CreateAccount.StepTwo = StepTwo;
-CreateAccount.StepFour = StepFour;
-CreateAccount.StepFive = StepFive;
+Download.StepOne = StepOne;
+Download.StepTwo = StepTwo;

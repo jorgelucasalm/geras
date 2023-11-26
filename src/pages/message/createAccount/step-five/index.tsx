@@ -1,14 +1,16 @@
-import { Anchor, Button } from "@components";
-import ConfirmationModal from "@components/confirmation-modal";
+import { Button } from "@components";
+import { EndAlert } from "@components/endAlert/end-alert";
 import LineInput from "@components/line-input";
 import TextCard from "@components/text-card/textCard";
 import { Form, message } from "antd";
 import type { UploadChangeParam } from "antd/es/upload";
 import type { RcFile, UploadFile, UploadProps } from "antd/es/upload/interface";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { PiCameraPlus } from "react-icons/pi";
-import { DivButton, DivModalBody, Main, Upload } from "./style";
+import { useOutletContext } from "react-router-dom";
+import { OutletContextType } from "..";
+import { DivButton, Main, Upload } from "./style";
 
 const getBase64 = (img: RcFile, callback: (url: string) => void) => {
   const reader = new FileReader();
@@ -29,9 +31,10 @@ const beforeUpload = (file: RcFile) => {
 };
 
 export default function StepFive() {
+  const outletContext = useOutletContext() as OutletContextType;
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState<string>();
-  const [openModal, setOpenModal] = useState<boolean>();
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   const handleChange: UploadProps["onChange"] = (info: UploadChangeParam<UploadFile>) => {
     if (info.file.status === "uploading") {
@@ -51,6 +54,15 @@ export default function StepFive() {
       {loading ? <AiOutlineLoading className="loading-icon" /> : <PiCameraPlus />}
     </DivButton>
   );
+
+  useEffect(() => {
+    outletContext.setFooterFunc({
+      onClickNext: (e) => {
+        setOpenModal(true);
+        e.preventDefault();
+      },
+    });
+  }, [outletContext]);
 
   return (
     <Main>
@@ -92,27 +104,7 @@ export default function StepFive() {
         </Button>
       </Form>
 
-      <ConfirmationModal
-        headerTitle="Parabéns"
-        headerSubTitle="Você criou sua conta."
-        open={openModal}
-        onCancel={() => setOpenModal(false)}
-      >
-        <DivModalBody>
-          <p style={{ marginTop: 24, marginBottom: 16 }}>Simulação concluída!</p>
-          <p>Vá para o próximo tópico da seção mensagem!</p>
-
-          <Anchor
-            to="/home"
-            category="primary"
-            width={216}
-            height={48}
-            style={{ margin: "0 auto", marginTop: 40, marginBottom: 24 }}
-          >
-            Finalizar
-          </Anchor>
-        </DivModalBody>
-      </ConfirmationModal>
+      <EndAlert isOpen={openModal} closeModal={() => setOpenModal(false)} />
     </Main>
   );
 }

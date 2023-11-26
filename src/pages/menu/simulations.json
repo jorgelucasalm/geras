@@ -19,14 +19,14 @@
       "icon": "GoCommentDiscussion",
       "label": "Enviar mensagem",
       "color": "green",
-      "url": "/"
+      "url": "/" 
     },
     {
       "id": "4",
       "icon": "GoMoveToBottom",
       "label": "Instalação",
       "color": "green",
-      "url": "/"
+      "url": "/download/mensagem"
     }
   ],
   [
@@ -79,7 +79,7 @@
       "icon": "GoMoveToBottom",
       "label": "Instalação",
       "color": "orange",
-      "url": "/"
+      "url": "/download/ifood"
     }
   ],
   [
@@ -109,7 +109,7 @@
       "icon": "GoMoveToBottom",
       "label": "Instalação",
       "color": "",
-      "url": "/"
+      "url": "/download/uber"
     }
   ]
 ]

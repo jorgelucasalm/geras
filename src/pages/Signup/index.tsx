@@ -170,7 +170,7 @@ export default function SignUpPage() {
         Cadastrar
       </Button>
       <Button category="secondary" style={{ margin: "0 auto" }}>
-        <Link to={"/login"}>Já tenho conta</Link>
+        <Link to={"/entrar"}>Já tenho conta</Link>
       </Button>
     </Main>
   );

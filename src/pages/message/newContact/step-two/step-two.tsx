@@ -51,15 +51,15 @@ function StepTwo() {
 
       <Instruction instruction="Selecione o contato desejado ou crie um novo contato." />
 
-      <NewContactButton>
+      <NewContactButton onClick={() => navigate("/mensagem/criar-contato/passo/3")}>
         <span>
           <GoPerson size={24} />
         </span>
         <p>Novo contato</p>
       </NewContactButton>
 
+      <p>Contatos salvos</p>
       <section>
-        <p>Contatos salvos</p>
         {contacts.map((contact) => {
           return <Contact key={contact.id} icon={contact.icon} name={contact.name} />;
         })}

@@ -17,6 +17,9 @@ export const Footer = styled.footer`
   width: 100%;
   padding: 0.5rem 0;
 
+  position: absolute;
+  bottom: 0;
+
   img {
     width: 1.5rem;
     margin: 0 2rem;

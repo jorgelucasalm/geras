@@ -3,8 +3,12 @@ import styled from "styled-components";
 export const Div = styled.div`
   margin: 0 2rem;
 
+  > h3 {
+    margin-top: 2rem;
+  }
+
   > p {
-    margin-top: 8rem;
+    margin-top: 11.375rem;
   }
 
   > button {

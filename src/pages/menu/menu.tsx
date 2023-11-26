@@ -26,7 +26,7 @@ export function Menu() {
           <img src={Logo} />
         </div>
       </nav>
-      <Header title="Vamos praticar?" subtitle="" category={"main"} />
+      <Header category={"main"} title="Vamos praticar?" subtitle="" />
 
       <section>
         <Link
@@ -86,26 +86,19 @@ export function Menu() {
           </span>
 
           <span>
-            <Link to={"/"}>
+            <Link to={"/home"}>
               <PiBroadcastLight size={28} />
             </Link>
           </span>
 
           <span>
-            <Link to={"/perfil"}
-              state={{
-                simulations: simulations[0],
-                index: 0,
-                title: "Configurações",
-                subtitle: "Navegue até as configurações do seu perfil.",
-              }}
-            >
+            <Link to={"/configuracao"}>
               <PiGearLight size={28} />
             </Link>
           </span>
 
           <span>
-            <Link to={"/"}>
+            <Link to={"/suporte"}>
               <GoQuestion size={28} />
             </Link>
           </span>
