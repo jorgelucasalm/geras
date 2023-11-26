@@ -2,7 +2,7 @@ import { Header } from "@components";
 import Footer from "@components/footer/footer";
 import { HeaderMenu } from "@components/header-menu/headerMenu";
 import { Step } from "@components/steps/steps";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { Main, OutletDiv } from "./createAccount-style";
 
@@ -24,7 +24,7 @@ type FooterFuncType = {
   onClickPrevious?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
-export type OutletCreateAccountMessageContextType = {
+export type OutletContextType = {
   setFooterFunc: React.Dispatch<React.SetStateAction<FooterFuncType>>;
 };
 
@@ -36,6 +36,7 @@ export default function CreateAccount() {
     onClickNext: undefined,
     onClickPrevious: undefined,
   });
+  const outletContext = useMemo(() => ({ setFooterFunc }), []);
 
   //Esses if's estão tratando o pathname da rota pra nao ocorrer conflito.
   if (messageText !== "mensagem" || createAccountText !== "criar-conta") {
@@ -88,7 +89,7 @@ export default function CreateAccount() {
           title={headerTexts[stepNumber - 1].title}
           subtitle={headerTexts[stepNumber - 1].subtitle}
         />
-        <Outlet context={{ setFooterFunc }} />
+        <Outlet context={outletContext} />
       </OutletDiv>
 
       <Footer

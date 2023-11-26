@@ -3,12 +3,14 @@ import LineInput from "@components/line-input";
 import TextCard from "@components/text-card/textCard";
 import { codeMask } from "@utils/inputMasks";
 import { Form } from "antd";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import useInterval from "use-interval";
 import { Main } from "./style";
+import { OutletContextType } from "..";
 
 export default function StepFour() {
+  const outletContext = useOutletContext() as OutletContextType;
   const [form] = Form.useForm();
   const codeForm = Form.useWatch("code", form);
   const navigate = useNavigate();
@@ -31,6 +33,12 @@ export default function StepFour() {
     },
     timer > 0 ? 1000 : null,
   );
+
+  useEffect(() => {
+    outletContext.setFooterFunc({
+      onClickNext: () => {},
+    });
+  }, [outletContext]);
 
   return (
     <Main>

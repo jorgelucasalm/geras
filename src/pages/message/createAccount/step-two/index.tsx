@@ -5,12 +5,29 @@ import TextCard from "@components/text-card/textCard";
 import { dddMask, phoneMask } from "@utils/inputMasks";
 import { Form } from "antd";
 import { useForm } from "antd/es/form/Form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Div, DivModalBody } from "./style";
+import { useOutletContext } from "react-router-dom";
+import { OutletContextType } from "..";
 
 export default function StepTwo() {
+  const outletContext = useOutletContext() as OutletContextType;
   const [form] = useForm();
   const [openModal, setOpenModal] = useState<boolean>(false);
+
+  useEffect(() => {
+    outletContext.setFooterFunc({
+      onClickNext: (e) => {
+        (async () => {
+          try {
+            await form.validateFields();
+            setOpenModal(true);
+          } catch (err) {}
+        })();
+        e.preventDefault();
+      },
+    });
+  }, [outletContext, form]);
 
   return (
     <Div>
