@@ -5,6 +5,7 @@ export const Main = styled.main`
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  align-items: center;
 `;
 
 export const OutletDiv = styled.div`
