@@ -1,0 +1,115 @@
+[
+  [
+    {
+      "id": "1",
+      "icon": "GoPerson",
+      "label": "Criar conta",
+      "color": "green",
+      "url": "/mensagem/criar-contato"
+    },
+    {
+      "id": "2",
+      "icon": "GoPersonAdd",
+      "label": "Novo contato",
+      "color": "green",
+      "url": "/"
+    },
+    {
+      "id": "3",
+      "icon": "GoCommentDiscussion",
+      "label": "Enviar mensagem",
+      "color": "green",
+      "url": "/" 
+    },
+    {
+      "id": "4",
+      "icon": "GoMoveToBottom",
+      "label": "Instalação",
+      "color": "green",
+      "url": "/download/mensagem"
+    }
+  ],
+  [
+    {
+      "id": "1",
+      "icon": "GoMention",
+      "label": "Criar conta",
+      "color": "pink",
+      "url": "/"
+    },
+    {
+      "id": "2",
+      "icon": "GoUnlock",
+      "label": "Esqueci minha senha",
+      "color": "pink",
+      "url": "/"
+    },
+    {
+      "id": "3",
+      "icon": "GoKey",
+      "label": "Acessar conta",
+      "color": "pink",
+      "url": "/"
+    }
+  ],
+  [
+    {
+      "id": "1",
+      "icon": "GoPerson",
+      "label": "Entrar",
+      "color": "orange",
+      "url": "/"
+    },
+    {
+      "id": "2",
+      "icon": "BiSearch",
+      "label": "Pesquisar",
+      "color": "orange",
+      "url": "/"
+    },
+    {
+      "id": "3",
+      "icon": "CiPizza",
+      "label": "Fazer Pedido",
+      "color": "orange",
+      "url": "/"
+    },
+    {
+      "id": "4",
+      "icon": "GoMoveToBottom",
+      "label": "Instalação",
+      "color": "orange",
+      "url": "/download/ifood"
+    }
+  ],
+  [
+    {
+      "id": "1",
+      "icon": "GoMilestone",
+      "label": "Novo destino",
+      "color": "",
+      "url": "/"
+    },
+    {
+      "id": "2",
+      "icon": "BiCar",
+      "label": "Veículo",
+      "color": "",
+      "url": "/"
+    },
+    {
+      "id": "3",
+      "icon": "BiMapAlt",
+      "label": "Solicitar viagem",
+      "color": "",
+      "url": "/"
+    },
+    {
+      "id": "4",
+      "icon": "GoMoveToBottom",
+      "label": "Instalação",
+      "color": "",
+      "url": "/download/uber"
+    }
+  ]
+]
