@@ -42,6 +42,11 @@ export const routes = () => {
           <Route path="passo/3" element={<MessagePage.NewContact.StepThree />} />
           <Route path="passo/4" element={<MessagePage.NewContact.StepFour />} />
         </Route>
+
+        <Route path="/mensagem/enviar-mensagem/*" element={<MessagePage.SendMessage />}>
+          <Route path="passo/1" element={<MessagePage.SendMessage.StepOne />} />
+          <Route path="passo/2" element={<MessagePage.SendMessage.StepTwo />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
