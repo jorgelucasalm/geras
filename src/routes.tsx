@@ -11,6 +11,7 @@ import Email from "@pages/Email";
 import Download from "@pages/download-page/download-page";
 import { Settings } from "@pages/settings/settings";
 import { Support } from "@pages/support/support";
+import Profile from "@pages/profile";
 
 export const routes = () => {
   return (
@@ -29,6 +30,7 @@ export const routes = () => {
         <Route path="/transporte" element={<Simulation />} />
         <Route path="/mensagem" element={<Simulation />} />
 
+        <Route path="/perfil/*" element={<Profile.ProfileView />}></Route>
         <Route path="/download/:app/*" element={<Download />}>
           <Route path="passo/1" element={<Download.StepOne />} />
           <Route path="passo/2" element={<Download.StepTwo />} />
