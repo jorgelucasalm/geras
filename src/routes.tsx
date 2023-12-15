@@ -12,6 +12,7 @@ import Download from "@pages/download-page/download-page";
 import { Settings } from "@pages/settings/settings";
 import { Support } from "@pages/support/support";
 import Profile from "@pages/profile";
+import { NotFound } from "@pages/notFound/not-found";
 
 export const routes = () => {
   return (
@@ -24,6 +25,7 @@ export const routes = () => {
         <Route path="/home" element={<Menu />} />
         <Route path="/configuracao" element={<Settings />} />
         <Route path="/suporte" element={<Support />} />
+        <Route path="/*" element={<NotFound />} />
 
         <Route path="/email" element={<Simulation />} />
         <Route path="/alimentacao" element={<Simulation />} />
