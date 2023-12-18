@@ -79,29 +79,29 @@ export function Menu() {
 
       <footer>
         <div>
-          <span>
-            <Link to={"/"}>
+          <Link to={"/"}>
+            <span>
               <PiStarLight size={28} />
-            </Link>
-          </span>
+            </span>
+          </Link>
 
-          <span>
-            <Link to={"/home"}>
+          <Link to={"/home"}>
+            <span>
               <PiBroadcastLight size={28} />
-            </Link>
-          </span>
+            </span>
+          </Link>
 
-          <span>
-            <Link to={"/configuracao"}>
+          <Link to={"/configuracao"}>
+            <span>
               <PiGearLight size={28} />
-            </Link>
-          </span>
+            </span>
+          </Link>
 
-          <span>
-            <Link to={"/suporte"}>
+          <Link to={"/suporte"}>
+            <span>
               <GoQuestion size={28} />
-            </Link>
-          </span>
+            </span>
+          </Link>
         </div>
       </footer>
     </Container>
