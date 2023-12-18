@@ -56,7 +56,7 @@ export default function LoginPage() {
 
   return (
     <Main>
-      <LoginBackButton />
+      <LoginBackButton onClick={() => navigate(-1)} />
       <Title>ENTRAR</Title>
 
       <FormDiv $rememberPasswordChecked={rememberPasswordChecked}>

@@ -1,6 +1,6 @@
-import MainInput from "@components/MainInput";
+// import MainInput from "@components/main-input";
 import { Navbar } from "@components/nav/nav";
-import { Footer } from "@components/footer/footer";
+// import { Footer } from "@components/footer/footer";
 import { useMutation } from "@tanstack/react-query";
 import api from "@utils/api";
 import toastUpdate from "@utils/toastUpdate";
@@ -14,6 +14,11 @@ import styled from "styled-components";
 import DatePicker from "@components/DatePicker";
 import { MainSelect } from "@components/select/select";
 import { LuMail, LuPhone } from "react-icons/lu";
+import { CiSearch } from "react-icons/ci";
+import MainInput from "@components/main-input/MainInput";
+import { Button } from "@components";
+import { EndAlert } from "@components/endAlert/end-alert";
+import { useState } from "react";
 
 export function Step1() {
   return (
@@ -47,7 +52,17 @@ export function Step2() {
           </p>
         </Alert>
         <DatePicker width={296} height={48} picker="date" placeholder="dia/mês/ano" />
-        <MainSelect />
+        <MainSelect
+          placeholder={"Gênero"}
+          isSearch={true}
+          options={[
+            { value: "m", label: "Masculino" },
+            { value: "f", label: "Feminino" },
+            { value: "o", label: "Outro" },
+          ]}
+          prefixIcon={<CiSearch size={24} />}
+          onChange={(e: string) => {}}
+        />
       </Content>
     </Section>
   );

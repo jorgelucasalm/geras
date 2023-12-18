@@ -19,7 +19,7 @@
   ],
   [
     {
-      "url": "/email/",
+      "url": "/email/criar-conta",
       "instructions": [
         "Inserir dados",
         "Escolher o endereço de e-mail",

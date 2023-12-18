@@ -27,15 +27,23 @@ export const routes = () => {
         <Route path="/suporte" element={<Support />} />
         <Route path="/*" element={<NotFound />} />
 
-        <Route path="/email" element={<Simulation />} />
         <Route path="/alimentacao" element={<Simulation />} />
         <Route path="/transporte" element={<Simulation />} />
         <Route path="/mensagem" element={<Simulation />} />
+        <Route path="/email" element={<Simulation />} />
 
         <Route path="/perfil/*" element={<Profile.ProfileView />}></Route>
         <Route path="/download/:app/*" element={<Download />}>
           <Route path="passo/1" element={<Download.StepOne />} />
           <Route path="passo/2" element={<Download.StepTwo />} />
+        </Route>
+
+        <Route path="/email/criar-conta/*" element={<Email />}>
+          <Route path="passo/1" element={<Email.StepOne />} />
+          <Route path="passo/2" element={<Email.StepTwo />} />
+          <Route path="passo/3" element={<Email.StepThree />} />
+          <Route path="passo/4" element={<Email.StepFour />} />
+          <Route path="passo/5" element={<Email.StepFive />} />
         </Route>
 
         <Route path="/mensagem/criar-conta/*" element={<MessagePage.CreateAccount />}>
