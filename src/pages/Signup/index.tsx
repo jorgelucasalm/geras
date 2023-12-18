@@ -52,7 +52,7 @@ export default function SignUpPage() {
 
   return (
     <Main>
-      <LoginBackButton />
+      <LoginBackButton onClick={() => navigate(-1)} />
       <Title>CADASTRAR</Title>
 
       <FormDiv $rememberPasswordChecked={rememberPasswordChecked}>
