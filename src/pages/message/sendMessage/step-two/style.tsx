@@ -27,6 +27,9 @@ export const Div = styled.div`
     > p[data-type="USER"] {
       margin: 0;
       margin-left: auto;
+      display: flex;
+      justify-content: start;
+      overflow-x: hidden;
     }
   }
 `;

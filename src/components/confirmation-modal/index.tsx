@@ -24,6 +24,7 @@ export default function ConfirmationModal({
 }
 
 const Modal = styled(AntdModal)`
+
   .ant-modal-content {
     padding: 2.5rem 1.5rem;
   }
@@ -39,9 +40,9 @@ const Modal = styled(AntdModal)`
     row-gap: 8px;
     justify-content: center;
     align-items: center;
-    width: 22.5rem;
+    width: 100%;
     height: 6.125rem;
-    left: -16px;
+    left: 0px;
     top: -152px;
     background-color: var(--black-400);
     border-top: 4px solid var(--orange-400);
