@@ -38,7 +38,7 @@ export default function SignUpPage() {
       return { toastId };
     },
     onSuccess: (_, __, context) => {
-      toastUpdate("Logado com sucesso", toast.TYPE.SUCCESS, context!.toastId);
+      toastUpdate("Usuário cadastrado com sucesso", toast.TYPE.SUCCESS, context!.toastId);
       navigate("/login");
     },
     onError: (err: Error, _, context) => {
