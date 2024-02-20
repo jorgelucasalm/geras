@@ -1,4 +1,4 @@
-import { Container, NewContactButton } from "../new-contact-style";
+import { Container, MainDiv, NewContactButton } from "../new-contact-style";
 
 import { Header } from "@components/header/header";
 import { Instruction } from "@components/instruction/instruction";
@@ -48,22 +48,23 @@ function StepTwo() {
         title="Passo 2"
         subtitle="Abrindo a lista de contatos salvos."
       />
+      <MainDiv>
+        <Instruction instruction="Selecione o contato desejado ou crie um novo contato." />
 
-      <Instruction instruction="Selecione o contato desejado ou crie um novo contato." />
+        <NewContactButton onClick={() => navigate("/mensagem/criar-contato/passo/3")}>
+          <span>
+            <GoPerson size={24} />
+          </span>
+          <p>Novo contato</p>
+        </NewContactButton>
 
-      <NewContactButton onClick={() => navigate("/mensagem/criar-contato/passo/3")}>
-        <span>
-          <GoPerson size={24} />
-        </span>
-        <p>Novo contato</p>
-      </NewContactButton>
-
-      <p>Contatos salvos</p>
-      <section>
-        {contacts.map((contact) => {
-          return <Contact key={contact.id} icon={contact.icon} name={contact.name} />;
-        })}
-      </section>
+        <p style={{ marginBottom: "1rem" }}>Contatos salvos</p>
+        <section>
+          {contacts.map((contact) => {
+            return <Contact key={contact.id} icon={contact.icon} name={contact.name} />;
+          })}
+        </section>
+      </MainDiv>
       <Footer
         previousToUrl="/mensagem/criar-contato/passo/1"
         nextToUrl="/mensagem/criar-contato/passo/3"

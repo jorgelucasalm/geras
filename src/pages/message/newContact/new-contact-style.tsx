@@ -29,6 +29,12 @@ export const Container = styled.div`
   }
 `;
 
+export const MainDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 22.5rem;
+`;
+
 export const FloatButton = styled.div`
   width: 18.5rem;
   padding: 1rem;

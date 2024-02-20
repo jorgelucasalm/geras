@@ -5,9 +5,9 @@ export default function Instruction() {
     <>
       <Step
         steps={["Aprenda a criar um e-mail", "Entrar no GERAS"]}
-        url=""
+        url="/email/criar-conta"
         render
-        renderUrl="/home"
+        renderUrl="/entrar"
       />
     </>
   );

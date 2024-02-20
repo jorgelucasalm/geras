@@ -11,6 +11,8 @@ import Email from "@pages/Email";
 import Download from "@pages/download-page/download-page";
 import { Settings } from "@pages/settings/settings";
 import { Support } from "@pages/support/support";
+import Profile from "@pages/profile";
+import { NotFound } from "@pages/notFound/not-found";
 
 export const routes = () => {
   return (
@@ -21,19 +23,27 @@ export const routes = () => {
         <Route path="/cadastro" element={<SignUpPage />} />
         <Route path="/entrar" element={<LoginPage />} />
         <Route path="/home" element={<Menu />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/configuracao" element={<Settings />} />
         <Route path="/suporte" element={<Support />} />
+        <Route path="/*" element={<NotFound />} />
 
-        <Route path="/email" element={<Simulation />} />
         <Route path="/alimentacao" element={<Simulation />} />
         <Route path="/transporte" element={<Simulation />} />
         <Route path="/mensagem" element={<Simulation />} />
+        <Route path="/email" element={<Simulation />} />
 
+        <Route path="/perfil/*" element={<Profile.ProfileView />}></Route>
         <Route path="/download/:app/*" element={<Download />}>
           <Route path="passo/1" element={<Download.StepOne />} />
           <Route path="passo/2" element={<Download.StepTwo />} />
+        </Route>
+
+        <Route path="/email/criar-conta/*" element={<Email />}>
+          <Route path="passo/1" element={<Email.StepOne />} />
+          <Route path="passo/2" element={<Email.StepTwo />} />
+          <Route path="passo/3" element={<Email.StepThree />} />
+          <Route path="passo/4" element={<Email.StepFour />} />
+          <Route path="passo/5" element={<Email.StepFive />} />
         </Route>
 
         <Route path="/mensagem/criar-conta/*" element={<MessagePage.CreateAccount />}>
