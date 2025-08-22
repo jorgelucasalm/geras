@@ -4,7 +4,7 @@ Repositório para a disciplina de **Projeto para Desenvolvimento Tecnológico pa
 
 ## Video de Apresentação
 
-[Clique Aqui!](https://drive.google.com/file/d/1joj2o1M1KwCkaiPUglAxjgxK1kM5lDKG/view?usp=sharing)
+https://github.com/user-attachments/assets/438b5829-bb23-42fc-8dda-e66dc24e5d29
 
 ## Sobre o projeto
 
